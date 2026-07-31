@@ -24,6 +24,7 @@
       <a class="on" href="/work/">work</a>
       <a href="/publications/">publications</a>
       <a href="/people/">people</a>
+      <a href="/news/">news</a>
       <a href="/join/">join</a>
     </nav>
     <button class="theme" type="button" data-theme-toggle>auto</button>
@@ -36,7 +37,7 @@
     <div class="shell">
       <p class="kicker"><a href="/work/">Selected work</a> &middot; Representation learning</p>
       <h1>Instruction tuning routes moral framing, it does not create it</h1>
-      <p class="standfirst">The direction was already in the pretrained network. Tuning connected it to the part that answers.</p>
+      <p class="standfirst">Decoded but unused. The direction was already in the pretrained network; tuning connected it to the part that answers.</p>
     </div>
   </section>
 
@@ -63,7 +64,8 @@
         <div class="slot">
           <div class="slot-key">What we found</div>
           <div class="slot-body"><p>The comparison uses a matched pretrained and instruction-tuned checkpoint from the same architecture, tokeniser and pretraining seed, so the post-training step is the only free variable. Without that control, any difference between two models can be attributed to pretraining instead.</p>
-          <p>In the pretrained checkpoint the framing direction sits nearly orthogonal to the judgment direction at its peak layer. In the instruction-tuned checkpoint, on the same prompts, it has rotated toward the judgment readout. Per-head attribution then locates the heads writing into that direction, and mean ablation tests whether they are actually load-bearing.</p></div>
+          <p>Moral framing is already linearly decodable in the pretrained network, and it has no causal effect on that network's judgment. In the instruction-tuned checkpoint the same representation becomes aligned with, and causally usable by, the evaluative readout: the within-model framing-to-judgment alignment is <strong>8.4 times larger</strong> than in the matched pretrained checkpoint at the same layer.</p>
+          <p>So the capability was not installed. It was already there and unused, and tuning changed how it is read out. Probes, the logit lens, residual activation patching and a within-model alignment cosine all point the same way, and per-head attribution followed by mean ablation identifies which heads actually carry it.</p></div>
         </div>
         <div class="slot">
           <div class="slot-key">What would sink it</div>
@@ -79,7 +81,7 @@
 
   <section class="strip">
     <div class="shell">
-      <p class="line">Everything here states what would have shown it was wrong.</p>
+      <p class="line">All four are written to the same four slots, which makes them quick to compare.</p>
       <span class="to"><a class="arrow" href="/work/">All selected work &rarr;</a></span>
     </div>
   </section>
@@ -101,6 +103,7 @@
       <a href="/work/">Selected work</a><br>
       <a href="/publications/">Publications</a><br>
       <a href="/people/">People</a><br>
+      <a href="/news/">News</a><br>
       <a href="/join/">Join</a>
     </div>
     <div>

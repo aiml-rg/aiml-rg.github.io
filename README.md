@@ -18,6 +18,7 @@ python3 -m http.server 8000
 | `/work/` | `work/index.html` | Figure grid, one tile per result |
 | `/work/<name>/` | `work/<name>/index.html` | One result, four slots |
 | `/publications/` | `publications/index.html` | Publication list by year |
+| `/news/` | `news/index.html` | Dated items, newest first |
 | `/people/` | `people/index.html` | Members and collaborators |
 | `/join/` | `join/index.html` | PhD positions, theses, visits, industry collaboration |
 
@@ -94,6 +95,12 @@ GitHub Pages, from the `main` branch root. Settings → Pages → Deploy from a 
 
 ## Research lines
 
-Four, in this order: **interpretability**, **representation learning**, **imaging and biosignals**, **language and software**. There is no verification line. The work on calibrated verification stays on the publications page and in the members' profiles, because the papers are real even though the line is not.
+Four, in this order: **interpretability**, **representation learning**, **imaging and biosignals**, **language and software**.
+
+There is deliberately **no verification line**. The word pulls the group toward compliance and conformity assessment, which is not where the work sits. Where the question is genuinely about whether a claim holds up, the site says **evaluation**: what a benchmark is actually measuring, what an invariance test would have to look like, what survives the move from a paper to a running service. The Open-Box Fallacy paper stays on the publications page, because it is real, but it does not set the framing.
+
+## Writing
+
+Headlines are one declarative sentence ending in a full stop, and each states a position rather than describing the page's layout. They are also load-bearing against duplication: no claim should appear as a headline on one page and as prose on another. Two things that used to be repeated and are now stated once each: the falsifier idea (front page prose, then the method section on `/research/`) and the research-line names (short claims on the front page, descriptive headings on `/research/`).
 
 If a line is added or removed, three places have to agree: the entry list on `index.html`, the numbered sections on `research/index.html`, and the tile keys on `work/index.html`.
