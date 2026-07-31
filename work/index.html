@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>(function(){try{var t=localStorage.getItem("aiml-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem("aiml-theme");if(t!=="light"&&t!=="dark"){t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
 <title>Selected work &middot; Applied and Interpretable Machine Learning Research Group</title>
 <meta name="description" content="Selected work from the Applied and Interpretable Machine Learning Research Group at SDU, each result shown by its figure.">
 <link rel="icon" href="/assets/img/favicon-v2.svg" type="image/svg+xml">
@@ -29,7 +29,7 @@
       <a href="/news/">news</a>
       <a href="/join/">join</a>
     </nav>
-    <button class="theme" type="button" data-theme-toggle data-mode="auto" aria-label="Colour theme"></button>
+    <button class="theme" type="button" data-theme-toggle aria-label="Switch theme"></button>
   </div>
 </header>
 

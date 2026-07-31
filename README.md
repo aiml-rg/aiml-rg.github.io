@@ -79,7 +79,11 @@ It holds down to 16px, which is the only test a mark has to pass. Do not add det
 
 ### Themes
 
-Three states, cycled by the button in the masthead and stored in `localStorage`: follow the system, force white, force dark. The button is one circle in three states, half lit, full, crescent, masked over `currentColor` like the wordmark glyph, so the control follows the theme it sets. CSS picks the glyph from a `data-mode` attribute the script writes; the accessible name is on `aria-label`, since the button carries no text. A short inline script in each `<head>` applies the stored choice before first paint, so the page never flashes the wrong theme.
+Two states, light and dark, stored in `localStorage`. There is no third "follow the system" state: it was one option too many for a control this small, and it left the icon with nothing honest to show. The system preference is still respected, as the starting point on a first visit.
+
+A short inline script in each `<head>` resolves the stored choice, or the system preference when there is none, and writes it to the root element before first paint. The button's glyph is keyed off that same root attribute in CSS, so the icon is correct on the first frame without waiting for any script.
+
+The glyph is a sun in light and a crescent in dark, masked over `currentColor` like the wordmark, so the control is drawn in the theme it sets. The icon shows the theme you are in; the label says what a click will do.
 
 Every text colour clears WCAG AA against its background in both themes, including the 10 to 12px mono utility layer. Measured ratios are in the comments at the top of `site.css`. If you change a colour, re-check it; the small mono text is the first thing to fail.
 

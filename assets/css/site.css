@@ -187,8 +187,10 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .nav a:hover { color: var(--ink); text-decoration: none; }
 .nav a.on { color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px; }
 
-/* Three states of one circle: half lit, full, crescent. Masked over
-   currentColor like the wordmark glyph, so it follows the theme it sets. */
+/* Two states, not three: a sun and a crescent, masked over currentColor
+   like the wordmark glyph so the control is drawn in the theme it sets.
+   The glyph keys off the root attribute rather than the button's own, so
+   the inline head script has already chosen it before first paint. */
 .theme {
   width: 19px;
   height: 19px;
@@ -198,16 +200,13 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   align-self: center;
   cursor: pointer;
   background: var(--ink-3);
-  -webkit-mask: url(/assets/img/theme-auto.svg) center / contain no-repeat;
-  mask: url(/assets/img/theme-auto.svg) center / contain no-repeat;
+  -webkit-mask: url(/assets/img/theme-light.svg) center / contain no-repeat;
+  mask: url(/assets/img/theme-light.svg) center / contain no-repeat;
   transition: background-color .15s ease;
 }
 .theme:hover { background: var(--ink); }
-.theme[data-mode="light"] {
-  -webkit-mask-image: url(/assets/img/theme-light.svg);
-  mask-image: url(/assets/img/theme-light.svg);
-}
-.theme[data-mode="dark"] {
+
+:root[data-theme="dark"] .theme {
   -webkit-mask-image: url(/assets/img/theme-dark.svg);
   mask-image: url(/assets/img/theme-dark.svg);
 }
