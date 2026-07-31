@@ -1,4 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <polygon points="10,10 106,10 10,106"/>
-  <polygon points="118,22 118,118 22,118"/>
+  <!-- One square, cut twice on the diagonal, the three pieces opened out by
+       an equal amount. No colour: this file is applied as a CSS mask over
+       currentColor, so only the alpha matters. -->
+  <polygon points="11,11 45,11 11,45"/>
+  <polygon points="56,22 86,22 22,86 22,56"/>
+  <polygon points="97,33 117,33 117,117 33,117 33,97"/>
 </svg>

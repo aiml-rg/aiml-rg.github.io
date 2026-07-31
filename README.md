@@ -67,7 +67,9 @@ Portrait slots are 1:1 at 128px, matching SDU's own square profile photographs. 
 
 ### The mark
 
-One block cut on the diagonal, the two halves pulled apart. The gap is the subject: a section through something that cannot be opened, and the thing you can see because it was cut.
+**Provisional.** One square, cut twice on the diagonal, the three pieces opened out by an equal amount. Nothing is added and nothing removed, and the interior is now visible: a section through something that cannot be opened.
+
+Ten alternatives, one per angle on interpretability, are set out in `AIML-mark-proposals.pdf` at the root of the working folder. This one is in place so the site is not empty while that is being decided.
 
 `assets/img/mark.svg` has no colour of its own. It is applied as a CSS mask over `currentColor`, so it follows the theme rather than shipping a light copy and a dark copy that eventually drift apart. `assets/img/favicon.svg` is the only coloured version, because a browser tab cannot inherit a colour; its two halves sit at the two poles of the palette.
 
