@@ -125,7 +125,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 .masthead .shell {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 28px;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -137,6 +137,9 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
    intelligence and machine learning, which loses both of the words the
    group is actually named for. */
 .mark {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-family: var(--sans);
   font-weight: 600;
   font-size: 16.5px;
@@ -144,7 +147,20 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   line-height: 1.2;
   color: var(--ink);
 }
+
+/* The glyph is a mask, not an image, so one file follows the theme
+   instead of shipping a light copy and a dark copy that drift apart. */
+.mark-glyph {
+  width: 29px;
+  height: 29px;
+  flex: none;
+  background: currentColor;
+  -webkit-mask: url(/assets/img/mark.svg) center / contain no-repeat;
+  mask: url(/assets/img/mark.svg) center / contain no-repeat;
+}
 .mark:hover { text-decoration: none; }
+
+.mark-text { display: block; }
 
 .mark small {
   display: block;

@@ -65,6 +65,14 @@ Photographs are cropped **in the file**, never by a CSS aspect ratio, so a break
 
 Portrait slots are 1:1 at 128px, matching SDU's own square profile photographs. **People without a photograph get no image block at all** rather than a grey placeholder box; each person opens with a hairline rule, so the roster reads as a list either way.
 
+### The mark
+
+One block cut on the diagonal, the two halves pulled apart. The gap is the subject: a section through something that cannot be opened, and the thing you can see because it was cut.
+
+`assets/img/mark.svg` has no colour of its own. It is applied as a CSS mask over `currentColor`, so it follows the theme rather than shipping a light copy and a dark copy that eventually drift apart. `assets/img/favicon.svg` is the only coloured version, because a browser tab cannot inherit a colour; its two halves sit at the two poles of the palette.
+
+It holds down to 16px, which is the only test a mark has to pass. Do not add detail that fails it.
+
 ### Themes
 
 Three states, cycled by the `auto / light / dark` button in the masthead and stored in `localStorage`: follow the system, force white, force dark. A short inline script in each `<head>` applies the stored choice before first paint, so the page never flashes the wrong theme.
