@@ -71,7 +71,9 @@ Portrait slots are 1:1 at 128px, matching SDU's own square profile photographs. 
 
 Ten alternatives, one per angle on interpretability, are set out in `AIML-mark-proposals.pdf` at the root of the working folder. This one is in place so the site is not empty while that is being decided.
 
-`assets/img/mark.svg` has no colour of its own. It is applied as a CSS mask over `currentColor`, so it follows the theme rather than shipping a light copy and a dark copy that eventually drift apart. `assets/img/favicon.svg` is the only coloured version, because a browser tab cannot inherit a colour; its two halves sit at the two poles of the palette.
+`assets/img/mark.svg` has no colour of its own. It is applied as a CSS mask over `currentColor`, so it follows the theme rather than shipping a light copy and a dark copy that eventually drift apart. `assets/img/favicon-v2.svg` is the only coloured version, because a browser tab cannot inherit a colour; its outer pieces sit at the two poles of the palette.
+
+**The favicon filename carries a version number, and changing the icon means bumping it.** Browsers cache favicons far more aggressively than anything else and will keep showing the old one through a hard refresh; a new filename is the only reliable way past that. `favicon-32.png` and `apple-touch-icon.png` are rasters for the places an SVG icon is still not accepted, and both are generated from the same file.
 
 It holds down to 16px, which is the only test a mark has to pass. Do not add detail that fails it.
 
