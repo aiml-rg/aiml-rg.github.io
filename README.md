@@ -11,15 +11,23 @@ python3 -m http.server 8000
 
 ## Pages
 
-| File | Purpose |
-| --- | --- |
-| `index.html` | Home: what the group is, the four research lines, selected work, news |
-| `research.html` | The research statement in full |
-| `work.html` | Figure grid, one tile per result |
-| `work-*.html` | One result, four slots |
-| `publications.html` | Publication list by year |
-| `people.html` | Members and collaborators |
-| `join.html` | PhD positions, theses, visits, industry collaboration |
+| URL | File | Purpose |
+| --- | --- | --- |
+| `/` | `index.html` | What the group is, the four research lines, selected work, news |
+| `/research/` | `research/index.html` | The research statement in full |
+| `/work/` | `work/index.html` | Figure grid, one tile per result |
+| `/work/<name>/` | `work/<name>/index.html` | One result, four slots |
+| `/publications/` | `publications/index.html` | Publication list by year |
+| `/people/` | `people/index.html` | Members and collaborators |
+| `/join/` | `join/index.html` | PhD positions, theses, visits, industry collaboration |
+
+### Why every page is a directory
+
+GitHub Pages serves static files, so a URL without `.html` only works if the file is called `index.html` inside a directory named after the page. That is the whole trick: `/research/` is `research/index.html`. An extensionless file called `research` would be served as a download, not a page.
+
+**All internal links and asset paths are root-relative** (`/work/ecg/`, `/assets/css/site.css`). One form everywhere, no `../../` arithmetic to get wrong when a page moves or a new one is nested. The cost is that opening a file directly from disk no longer works; run the local server instead.
+
+GitHub Pages redirects `/research` to `/research/`, so the trailing slash always appears in the address bar. There is no way to avoid that on Pages, and it is what almost every static academic site does.
 
 ## Adding to Selected work
 
@@ -27,7 +35,7 @@ The page is called Selected work, not Projects, on purpose. A project implies a 
 
 Every entry carries the same four slots, in this order: **the question**, **what we found**, **what would sink it**, **the paper**. That template is the group's own method made structural, so keep it. An entry with nothing in the third slot is not ready to be a page.
 
-Copy an existing `work-*.html`, replace the four slots, drop the figure in `assets/img/figures/`, then add a tile to the grid in `work.html`.
+Copy an existing `work/<name>/` directory, replace the four slots, drop the figure in `assets/img/figures/`, then add a tile to the grid in `work/index.html`.
 
 **An entry is listed only once it has a figure.** Everything else stays on the publications page. This is deliberate: a grid of placeholder boxes is worse than a shorter grid. Figures are shown `object-fit: contain` on a white plate in both themes, never cropped, because a scientific figure cropped to fill a box is a figure you can no longer read.
 
@@ -86,4 +94,4 @@ GitHub Pages, from the `main` branch root. Settings → Pages → Deploy from a 
 
 Four, in this order: **interpretability**, **representation learning**, **imaging and biosignals**, **language and software**. There is no verification line. The work on calibrated verification stays on the publications page and in the members' profiles, because the papers are real even though the line is not.
 
-If a line is added or removed, three places have to agree: the entry list on `index.html`, the numbered sections on `research.html`, and the tile keys on `work.html`.
+If a line is added or removed, three places have to agree: the entry list on `index.html`, the numbered sections on `research/index.html`, and the tile keys on `work/index.html`.
