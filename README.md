@@ -1,4 +1,4 @@
-# aiml-rg
+# aiml-sdu.github.io
 
 Website for the **Applied and Interpretable Machine Learning Research Group**
 Centre for Industrial Software, Mærsk Mc-Kinney Møller Institute, University of Southern Denmark.
