@@ -187,21 +187,30 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .nav a:hover { color: var(--ink); text-decoration: none; }
 .nav a.on { color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px; }
 
-/* Three states: follows the system, forced light, forced dark. */
+/* Three states of one circle: half lit, full, crescent. Masked over
+   currentColor like the wordmark glyph, so it follows the theme it sets. */
 .theme {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  background: none;
-  border: 0;
+  width: 19px;
+  height: 19px;
   padding: 0;
+  border: 0;
+  flex: none;
+  align-self: center;
   cursor: pointer;
-  line-height: 1.35;
-  align-self: baseline;
+  background: var(--ink-3);
+  -webkit-mask: url(/assets/img/theme-auto.svg) center / contain no-repeat;
+  mask: url(/assets/img/theme-auto.svg) center / contain no-repeat;
+  transition: background-color .15s ease;
 }
-.theme:hover { color: var(--ink); }
+.theme:hover { background: var(--ink); }
+.theme[data-mode="light"] {
+  -webkit-mask-image: url(/assets/img/theme-light.svg);
+  mask-image: url(/assets/img/theme-light.svg);
+}
+.theme[data-mode="dark"] {
+  -webkit-mask-image: url(/assets/img/theme-dark.svg);
+  mask-image: url(/assets/img/theme-dark.svg);
+}
 
 @media (max-width: 600px) {
   .masthead .shell { padding-bottom: 14px; }

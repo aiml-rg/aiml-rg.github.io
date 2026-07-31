@@ -79,7 +79,7 @@ It holds down to 16px, which is the only test a mark has to pass. Do not add det
 
 ### Themes
 
-Three states, cycled by the `auto / light / dark` button in the masthead and stored in `localStorage`: follow the system, force white, force dark. A short inline script in each `<head>` applies the stored choice before first paint, so the page never flashes the wrong theme.
+Three states, cycled by the button in the masthead and stored in `localStorage`: follow the system, force white, force dark. The button is one circle in three states, half lit, full, crescent, masked over `currentColor` like the wordmark glyph, so the control follows the theme it sets. CSS picks the glyph from a `data-mode` attribute the script writes; the accessible name is on `aria-label`, since the button carries no text. A short inline script in each `<head>` applies the stored choice before first paint, so the page never flashes the wrong theme.
 
 Every text colour clears WCAG AA against its background in both themes, including the 10 to 12px mono utility layer. Measured ratios are in the comments at the top of `site.css`. If you change a colour, re-check it; the small mono text is the first thing to fail.
 

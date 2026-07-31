@@ -18,7 +18,10 @@
 
   function render() {
     var mode = current();
-    btn.textContent = mode;
+    // The glyph is set from this attribute in CSS. The label is the only
+    // thing a screen reader gets, since the button carries no text.
+    btn.setAttribute('data-mode', mode);
+    btn.setAttribute('title', 'Colour theme: ' + mode);
     btn.setAttribute(
       'aria-label',
       'Colour theme: ' + mode + '. Activate to change.'
