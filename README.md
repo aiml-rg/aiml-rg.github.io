@@ -29,6 +29,8 @@ GitHub Pages serves static files, so a URL without `.html` only works if the fil
 
 GitHub Pages redirects `/research` to `/research/`, so the trailing slash always appears in the address bar. There is no way to avoid that on Pages, and it is what almost every static academic site does.
 
+The old flat `*.html` paths are kept at the repository root as one-line redirect stubs, because GitHub Pages caches HTML for ten minutes and a visitor holding a stale page would otherwise click straight into a 404. Each stub carries a canonical link to the real URL and `noindex`, so search engines only ever see one address per page. `404.html` catches everything else and offers the full list of pages in the site's own design.
+
 ## Adding to Selected work
 
 The page is called Selected work, not Projects, on purpose. A project implies a named, ongoing thing with several outputs; these are individual results. If a real project ever exists, the word is still free.
