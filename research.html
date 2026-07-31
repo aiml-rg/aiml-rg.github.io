@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){try{var t=localStorage.getItem("aiml-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+<title>Research &middot; Applied and Interpretable Machine Learning Research Group</title>
+<meta name="description" content="Representation learning, interpretability, imaging and biosignals, and language models in practice, at the Centre for Industrial Software, SDU.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="shell">
+    <a class="mark" href="index.html">Applied &amp; Interpretable<small>Machine Learning Research Group</small></a>
+    <nav class="nav" aria-label="Primary">
+      <a class="on" href="research.html">research</a>
+      <a href="work.html">work</a>
+      <a href="publications.html">publications</a>
+      <a href="people.html">people</a>
+      <a href="join.html">join</a>
+    </nav>
+    <button class="theme" type="button" data-theme-toggle>auto</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="pagehead">
+    <div class="shell">
+      <p class="kicker">Research</p>
+      <h1>An explanation is a claim, and a claim needs a way of being wrong.</h1>
+      <p class="standfirst">Four lines of work, one method. Each borrows a mature instrument from a field that has already been rigorous about measurement, states exactly what maps to what, and names the observation that would sink it.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="shell">
+      <div class="margin">
+        <b>Method</b>
+        The discipline of import
+        <em>Borrowed tools arrive as metaphors unless something stops them.</em>
+      </div>
+      <div class="column">
+        <div class="prose">
+          <p>Machine learning borrows constantly: from information theory, from control engineering, from neuroscience, from statistics. Borrowing is not the problem. Borrowing loosely is. A tool imported as an analogy produces figures that look like evidence and are not.</p>
+          <p>Every project here carries three things before it produces a result. A <strong>contract</strong>, saying what in the borrowed theory corresponds to what in the system. A <strong>null model</strong>, saying what the instrument reports when there is nothing there. And a <strong>falsifier</strong>, a stated observation that would tell us the whole approach was wrong.</p>
+          <p>This is a slower way to publish. It is also the only version of the work we would be willing to hand to a company that has to answer for the system afterwards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="shell">
+      <div class="margin">
+        <b>01 Interpretability</b>
+        <em>What a model is doing, and when the answer is evidence.</em>
+      </div>
+      <div class="column">
+        <h2 class="h2">Reading a trained system</h2>
+        <div class="prose">
+          <p>Most interpretability results are descriptions that nobody can check. A saliency map, a feature label, a circuit diagram: each is a hypothesis about a computation, presented in a format that resists disagreement. We work on the version of the field where the description can lose.</p>
+          <p>Concretely: counterfactual explanation, where the claim is tested by changing the input and seeing whether the model moves as predicted; mechanistic analysis of internal structure, using tools that network neuroscience spent thirty years making honest; and identifiability, the question of whether a model's own report about its reasoning constrains what that reasoning could have been. Our result there is negative and useful: under stated conditions, it does not.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="shell">
+      <div class="margin">
+        <b>02 Representation learning</b>
+        <em>How the structure inside a model comes to be there.</em>
+      </div>
+      <div class="column">
+        <h2 class="h2">How a network comes to encode what it encodes</h2>
+        <div class="prose">
+          <p>A trained network ends up carrying structure that nobody put there by hand. Which structure appears is decided by an interaction between architecture, data, optimiser, scale, and increasingly the post-training stage. Most claims about that interaction are made by comparing two models that differ in several of those at once, which is why so few of them survive.</p>
+          <p>We work with designs that isolate one variable. A matched pretrained and instruction-tuned checkpoint sharing architecture, tokeniser and pretraining seed leaves the post-training step as the only thing free to vary, which is what makes a claim about that step testable at all.</p>
+          <p>The recurring question is the gap between presence and use: a capability can be cleanly decodable from a representation and still play no part in what the model actually outputs. Decodable is not the same as used, and the difference matters for anyone reading a probe result as evidence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="shell">
+      <div class="margin">
+        <b>03 Imaging &amp; biosignals</b>
+        <em>Where an unexplained model is not an option.</em>
+      </div>
+      <div class="column">
+        <h2 class="h2">Medical images and physiological signals</h2>
+        <div class="prose">
+          <p>Clinical machine learning is where interpretability stops being an academic preference. A radiologist or a cardiologist is accountable for the decision, so a model that cannot be interrogated is a model that cannot be used, whatever its numbers say.</p>
+          <p>Our work covers counterfactual analysis of ECG for infarction detection, evaluation of saliency-based explanation in mammography, and segmentation, including a benchmarking study of how badly the field's standard practices handle small organs. Across all of it the same question: does the explanation change when the underlying decision changes, or is it decoration?</p>
+        </div>
+        <figure class="figure more">
+          <div class="frame slot"><span>figure &middot; to be added</span></div>
+          <figcaption class="caption">A representative result figure will go here.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="shell">
+      <div class="margin">
+        <b>04 Language &amp; software</b>
+        <em>The applied half, and the one with the nearest industrial partners.</em>
+      </div>
+      <div class="column">
+        <h2 class="h2">Language models, and the software they reshape</h2>
+        <div class="prose">
+          <p>A language model in a company is never just a model. It is a retrieval layer, a document base that was never written to be queried this way, an evaluation story, and a set of architectural commitments that nobody consciously made.</p>
+          <p>We work on both ends. On the retrieval side: chunking, vector search and accuracy for systems that must answer from a real corpus. On the software side: how AI systems change the architecture around them, including the design decisions that coding assistants make implicitly on behalf of teams that never reviewed them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="shell">
+      <div class="margin">
+        <b>Resources</b>
+        Compute
+      </div>
+      <div class="column">
+        <div class="prose">
+          <p>The work is deliberately compute-light. Small open models, national HPC allocation, and methods that a hospital or a mid-sized manufacturer could run themselves. A result that only reproduces on a frontier cluster is a result our partners cannot use.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip">
+    <div class="shell">
+      <p class="line">Each line is easier to judge from what it produced than from what it claims.</p>
+      <span class="to"><a class="arrow" href="work.html">See selected work &rarr;</a></span>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="shell">
+    <div>
+      <b>Applied and Interpretable Machine Learning Research Group</b>
+      Centre for Industrial Software<br>
+      Mærsk Mc-Kinney Møller Institute<br>
+      University of Southern Denmark<br>
+      Sønderborg, Denmark
+    </div>
+    <div>
+      <b>Pages</b>
+      <a href="research.html">Research</a><br>
+      <a href="work.html">Selected work</a><br>
+      <a href="publications.html">Publications</a><br>
+      <a href="people.html">People</a><br>
+      <a href="join.html">Join</a>
+    </div>
+    <div>
+      <b>Elsewhere</b>
+      <a href="https://www.sdu.dk/en/forskning/cis">SDU CIS</a><br>
+      <a href="https://github.com/aiml-rg">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/theme.js"></script>
+</body>
+</html>

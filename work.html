@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){try{var t=localStorage.getItem("aiml-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+<title>Selected work &middot; Applied and Interpretable Machine Learning Research Group</title>
+<meta name="description" content="Selected work from the Applied and Interpretable Machine Learning Research Group at SDU, each result shown by its figure.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="shell">
+    <a class="mark" href="index.html">Applied &amp; Interpretable<small>Machine Learning Research Group</small></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="research.html">research</a>
+      <a class="on" href="work.html">work</a>
+      <a href="publications.html">publications</a>
+      <a href="people.html">people</a>
+      <a href="join.html">join</a>
+    </nav>
+    <button class="theme" type="button" data-theme-toggle>auto</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="pagehead">
+    <div class="shell">
+      <p class="kicker">Selected work</p>
+      <h1>We would rather show a few results in full than list all of them.</h1>
+      <p class="standfirst">Each entry carries the same four slots: the question, the figure, what we found, and what would have shown us we were wrong. The complete list of publications is kept separately.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="shell">
+      <div class="margin">
+        <b>Selected work</b>
+        <em>Listed once there is a figure to show. Everything else is on the publications page.</em>
+      </div>
+      <div class="column">
+        <div class="grid">
+          <a class="tile" href="work-identifiability.html">
+            <div class="plate"><img src="assets/img/figures/identifiability.png" alt="Four-panel schematic: the same observed report distribution is compatible with a grounded and a prompt-bound mechanism, separated only under intervention." loading="lazy"></div>
+            <p class="tile-key">Interpretability</p>
+            <p class="tile-title">Self-reports do not identify self-models</p>
+            <p class="tile-line">A model describing its own reasoning does not, on its own, tell you what that reasoning was.</p>
+          </a>
+
+          <a class="tile" href="work-readout.html">
+            <div class="plate"><img src="assets/img/figures/attribution.png" alt="A grid of attention heads by layer, with a few heads marked as writers and antagonists to the judgment direction." loading="lazy"></div>
+            <p class="tile-key">Representation learning</p>
+            <p class="tile-title">Instruction tuning routes moral framing, it does not create it</p>
+            <p class="tile-line">The direction was already in the pretrained network. Tuning connected it to the part that answers.</p>
+          </a>
+
+          <a class="tile" href="work-ecg.html">
+            <div class="plate"><img src="assets/img/figures/ecg-counterfactual.png" alt="A three-stage pipeline: ECG preprocessing and feature extraction, tree-ensemble classification, then counterfactual generation visualised back on the trace." loading="lazy"></div>
+            <p class="tile-key">Imaging &amp; biosignals</p>
+            <p class="tile-title">An explanation a cardiologist can test</p>
+            <p class="tile-line">Not where the model looked, but what would have had to be different for it to change its mind.</p>
+          </a>
+
+          <a class="tile" href="work-mammography.html">
+            <div class="plate"><img src="assets/img/figures/mammography.png" alt="A curriculum from 128-pixel patches through 256 and 512 to the full 1024-pixel mammogram, feeding one network across stages." loading="lazy"></div>
+            <p class="tile-key">Imaging &amp; biosignals</p>
+            <p class="tile-title">Explainable breast cancer detection without dense annotation</p>
+            <p class="tile-line">Make the patch the unit of evidence, and the model points at the image by construction.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip">
+    <div class="shell">
+      <p class="line">If one of these is the thing you have been wanting to work on, write to us.</p>
+      <span class="to"><a class="arrow" href="join.html">Join the group &rarr;</a></span>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="shell">
+    <div>
+      <b>Applied and Interpretable Machine Learning Research Group</b>
+      Centre for Industrial Software<br>
+      M&aelig;rsk Mc-Kinney M&oslash;ller Institute<br>
+      University of Southern Denmark<br>
+      S&oslash;nderborg, Denmark
+    </div>
+    <div>
+      <b>Pages</b>
+      <a href="research.html">Research</a><br>
+      <a href="work.html">Selected work</a><br>
+      <a href="publications.html">Publications</a><br>
+      <a href="people.html">People</a><br>
+      <a href="join.html">Join</a>
+    </div>
+    <div>
+      <b>Elsewhere</b>
+      <a href="https://www.sdu.dk/en/forskning/cis">SDU CIS</a><br>
+      <a href="https://github.com/aiml-rg">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/theme.js"></script>
+</body>
+</html>

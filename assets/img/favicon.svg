@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Four cells of the attribution raster: one cool pole, one warm pole. -->
+  <rect x="3"  y="3"  width="12" height="12" fill="#2e5a86"/>
+  <rect x="17" y="3"  width="12" height="12" fill="#8a9198" opacity="0.45"/>
+  <rect x="3"  y="17" width="12" height="12" fill="#8a9198" opacity="0.45"/>
+  <rect x="17" y="17" width="12" height="12" fill="#a3452e"/>
+</svg>

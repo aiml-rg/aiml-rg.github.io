@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){try{var t=localStorage.getItem("aiml-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+<title>Self-reports do not identify self-models &middot; Applied and Interpretable Machine Learning Research Group</title>
+<meta name="description" content="A model describing its own reasoning does not, on its own, tell you what that reasoning was.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="shell">
+    <a class="mark" href="index.html">Applied &amp; Interpretable<small>Machine Learning Research Group</small></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="research.html">research</a>
+      <a class="on" href="work.html">work</a>
+      <a href="publications.html">publications</a>
+      <a href="people.html">people</a>
+      <a href="join.html">join</a>
+    </nav>
+    <button class="theme" type="button" data-theme-toggle>auto</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="pagehead">
+    <div class="shell">
+      <p class="kicker"><a href="work.html">Selected work</a> &middot; Interpretability</p>
+      <h1>Self-reports do not identify self-models</h1>
+      <p class="standfirst">A model describing its own reasoning does not, on its own, tell you what that reasoning was.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="shell">
+      <div class="margin"><b>Figure</b></div>
+      <div class="column">
+        <figure class="figure">
+          <div class="plate full"><img src="assets/img/figures/identifiability.png" alt="Four-panel schematic: the same observed report distribution is compatible with a grounded and a prompt-bound mechanism, separated only under intervention." loading="lazy"></div>
+          <figcaption class="caption">Two mechanisms produce the same reports and disagree only under intervention. Figure 1 from the paper.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="shell">
+      <div class="margin"><b>The work</b><em>Every entry here carries the same four slots.</em></div>
+      <div class="column">
+        <div class="slot">
+          <div class="slot-key">The question</div>
+          <div class="slot-body"><p>When a model explains why it answered as it did, does the explanation constrain what the underlying computation could have been? A great deal of interest in chain-of-thought and self-explanation quietly assumes that it does.</p></div>
+        </div>
+        <div class="slot">
+          <div class="slot-key">What we found</div>
+          <div class="slot-body"><p>Under stated conditions it does not. Given a <strong>grounded</strong> mechanism, in which the report tracks the intervened hidden state, one can construct a <strong>prompt-bound</strong> mechanism that never reads that state and still reproduces the same observed report distribution. The two are observationally equivalent and separate only under intervention.</p>
+          <p>The paper turns that into a protocol rather than leaving it as a worry: name the target intervention, vary the demonstration environment, and ask which of the two the report follows. It is evaluated on three open instruction models across four affect-like directions.</p></div>
+        </div>
+        <div class="slot">
+          <div class="slot-key">What would sink it</div>
+          <div class="slot-body"><p>If the two mechanism classes had separated on observation alone, there would be no identifiability problem here and the protocol would be unnecessary.</p></div>
+        </div>
+        <div class="slot">
+          <div class="slot-key">Paper</div>
+          <div class="slot-body"><p>P. M. Konrad, T. Tanyel, S. Ayvaz &middot; <span class="venue">ICML 2026 Workshop on Philosophy of Machine Learning</span> &middot; oral</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip">
+    <div class="shell">
+      <p class="line">Everything here states what would have shown it was wrong.</p>
+      <span class="to"><a class="arrow" href="work.html">All selected work &rarr;</a></span>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="shell">
+    <div>
+      <b>Applied and Interpretable Machine Learning Research Group</b>
+      Centre for Industrial Software<br>
+      M&aelig;rsk Mc-Kinney M&oslash;ller Institute<br>
+      University of Southern Denmark<br>
+      S&oslash;nderborg, Denmark
+    </div>
+    <div>
+      <b>Pages</b>
+      <a href="research.html">Research</a><br>
+      <a href="work.html">Selected work</a><br>
+      <a href="publications.html">Publications</a><br>
+      <a href="people.html">People</a><br>
+      <a href="join.html">Join</a>
+    </div>
+    <div>
+      <b>Elsewhere</b>
+      <a href="https://www.sdu.dk/en/forskning/cis">SDU CIS</a><br>
+      <a href="https://github.com/aiml-rg">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/theme.js"></script>
+</body>
+</html>
