@@ -168,7 +168,7 @@ If something on the live site is wrong and needs to be gone right now, an admin 
 | `/people/` | `people/index.html` |
 | `/join/` | `join/index.html` |
 
-The flat `*.html` files at the root are one-line redirects from the site's earlier URLs. Leave them.
+The only HTML files at the root are `index.html`, which is the front page, and `404.html`. Every other page lives in its own directory. If a link from before the site was restructured ever turns up, `404.html` catches it and offers the full list of pages.
 
 ### Files
 
