@@ -452,6 +452,21 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 .person .portrait img { width: 100%; height: 100%; object-fit: cover; }
 
+/* Reserved, not missing. A hairline says the slot is deliberate, and the figure
+   is drawn in the mark's own vocabulary: two hard-edged pieces held apart by an
+   equal gap. */
+.person .portrait.pending {
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 0 0 1px var(--rule);
+}
+
+.person .portrait.pending svg {
+  width: 62%;
+  height: auto;
+  fill: var(--rule);
+}
+
 .person .name {
   font-family: var(--sans);
   font-weight: 600;
