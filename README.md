@@ -47,10 +47,15 @@ Copy an existing `work/<name>/` directory, replace the four slots, drop the figu
 ```
 assets/
   css/site.css     all styling, one file
-  js/theme.js      the auto / light / dark control
-  img/             photographs
+  js/theme.js      the light / dark control
+  img/             photographs, the mark, the favicons
   img/figures/     paper figures used on Selected work
+  brand/           exports the site itself does not load
 ```
+
+Nothing in `assets/brand/` is referenced by any page. It holds the avatar in three treatments, as SVG and as PNG at 1024 and 512, for places that need a square image file: the GitHub organisation, a slide, a conference badge. The organisation avatar has to be uploaded by hand, because the GitHub API has no endpoint for it.
+
+The mark spans 58% of the avatar canvas, which keeps it clear of a circular crop as well as a square one. Use the colour version by default: below about 24px the white channels between the three pieces disappear, and hue is what keeps them separable when the geometry no longer can.
 
 ## Design
 
