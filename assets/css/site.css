@@ -176,6 +176,9 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .nav {
   margin-left: auto;
   display: flex;
+  /* Six items at 12px mono need about 374px, so below roughly 430px they have
+     to wrap or the last one is simply unreachable. */
+  flex-wrap: wrap;
   gap: 24px;
   font-family: var(--mono);
   font-size: 12px;
@@ -211,9 +214,17 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   mask-image: url(/assets/img/theme-dark.svg);
 }
 
+/* The paper figures run from 2.5:1 to 4.4:1. Fitted to a phone's width the
+   widest becomes a 67px smudge, so below 600px they keep a legible width and
+   the frame scrolls instead. The clipped edge inside the border is the cue. */
 @media (max-width: 600px) {
+  .plate.full { overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 14px; }
+  .plate.full img { min-width: 660px; }
+
   .masthead .shell { padding-bottom: 14px; }
-  .nav { margin-left: 0; width: 100%; gap: 20px; margin-top: 14px; }
+  /* order pulls the nav below, so the toggle rides on the mark's line instead
+     of taking a row of its own under a wrapped nav. */
+  .nav { order: 1; margin-left: 0; width: 100%; gap: 12px 20px; margin-top: 14px; }
   .theme { margin-left: auto; }
 }
 
