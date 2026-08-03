@@ -1,127 +1,205 @@
 # aiml-sdu.github.io
 
-Website for the **Applied and Interpretable Machine Learning Research Group**
-Centre for Industrial Software, Mærsk Mc-Kinney Møller Institute, University of Southern Denmark.
+The website of the **Applied and Interpretable Machine Learning Research Group**, Centre for Industrial Software, Mærsk Mc-Kinney Møller Institute, University of Southern Denmark.
 
-Static HTML and CSS. No build step, no dependencies. Open `index.html` in a browser, or serve the folder:
+Live at **https://aiml-sdu.github.io**
 
+Plain HTML and CSS. No framework, no build step, nothing to install. Editing a page means editing the page.
+
+---
+
+## Making a change
+
+Everything on the site is text in an HTML file. Find the words you want to change, change them, open a pull request. The recipes below say which file.
+
+### Change some wording
+
+| What | File |
+| --- | --- |
+| The headline, the four research lines, selected work on the front page | `index.html` |
+| The research statement | `research/index.html` |
+| One study | `work/<name>/index.html` |
+| The publication list | `publications/index.html` |
+| A person, a role, a collaborator | `people/index.html` |
+| A news item | `news/index.html` |
+| Positions, supervision, contact | `join/index.html` |
+
+Search the file for a phrase you can see on the page. The text between the tags is the text on the screen.
+
+```html
+<p class="line">Interpretability and verification of learned systems.</p>
+         ↑ leave this alone      ↑ change this
 ```
-python3 -m http.server 8000
+
+### Add or correct your own entry on the People page
+
+Open `people/index.html`, find the block with your name, and edit the three lines. To add someone, copy an existing block and change it.
+
+```html
+<div class="person">
+  <p class="name">Ada Lovelace</p>
+  <p class="role">PhD Fellow</p>
+  <p class="line">One or two sentences on what you actually work on.</p>
+  <div class="links">
+    <a href="https://example.org">Site</a>
+  </div>
+</div>
 ```
 
-## Pages
+Leave out any line you do not want. A person with no photograph gets no image block at all, which is deliberate: an empty grey box looks worse than no box.
 
-| URL | File | Purpose |
-| --- | --- | --- |
-| `/` | `index.html` | What the group is, the four research lines, selected work, news |
-| `/research/` | `research/index.html` | The research statement in full |
-| `/work/` | `work/index.html` | Figure grid, one tile per result |
-| `/work/<name>/` | `work/<name>/index.html` | One result, four slots |
-| `/publications/` | `publications/index.html` | Publication list by year |
-| `/news/` | `news/index.html` | Dated items, newest first |
-| `/people/` | `people/index.html` | Members and collaborators |
-| `/join/` | `join/index.html` | PhD positions, theses, visits, industry collaboration |
+### Add a photograph
 
-### Why every page is a directory
+1. Crop it before you add it. The frame will not crop for you, and a picture cropped by a browser gets cut differently on a phone than on a laptop.
+2. Keep it under 1.5 MB. The check will refuse anything larger.
+3. Put it in `assets/img/`.
+4. Reference it with a leading slash and real dimensions:
 
-GitHub Pages serves static files, so a URL without `.html` only works if the file is called `index.html` inside a directory named after the page. That is the whole trick: `/research/` is `research/index.html`. An extensionless file called `research` would be served as a download, not a page.
+```html
+<img src="/assets/img/your-file.jpeg" alt="What is in the picture" width="2048" height="1080">
+```
 
-**All internal links and asset paths are root-relative** (`/work/ecg/`, `/assets/css/site.css`). One form everywhere, no `../../` arithmetic to get wrong when a page moves or a new one is nested. The cost is that opening a file directly from disk no longer works; run the local server instead.
+For a portrait, 1:1 square is the shape the page expects.
 
-GitHub Pages redirects `/research` to `/research/`, so the trailing slash always appears in the address bar. There is no way to avoid that on Pages, and it is what almost every static academic site does.
+### Add a publication
 
-The old flat `*.html` paths are kept at the repository root as one-line redirect stubs, because GitHub Pages caches HTML for ten minutes and a visitor holding a stale page would otherwise click straight into a 404. Each stub carries a canonical link to the real URL and `noindex`, so search engines only ever see one address per page. `404.html` catches everything else and offers the full list of pages in the site's own design.
+Open `publications/index.html` and copy the nearest entry. Newest first inside each year.
 
-## Adding to Selected work
+```html
+<div class="pub">
+  <div class="pub-year">2026</div>
+  <div>
+    <p class="pub-title">The exact title of the paper</p>
+    <p class="pub-meta">A. Author, B. Author &middot; <span class="venue">Venue</span></p>
+  </div>
+</div>
+```
 
-The page is called Selected work, not Projects, on purpose. A project implies a named, ongoing thing with several outputs; these are individual results. If a real project ever exists, the word is still free.
+### Add a news item
 
-Every entry carries the same four slots, in this order: **the question**, **what we found**, **what would sink it**, **the paper**. That template is the group's own method made structural, so keep it. An entry with nothing in the third slot is not ready to be a page.
+Open `news/index.html` and copy an existing entry into the right year.
 
-Copy an existing `work/<name>/` directory, replace the four slots, drop the figure in `assets/img/figures/`, then add a tile to the grid in `work/index.html`.
+```html
+<div class="entry">
+  <div class="entry-key">2026</div>
+  <div class="entry-body">
+    <p>What happened, in one sentence. <a href="/work/">Link if there is one</a>.</p>
+  </div>
+</div>
+```
 
-**An entry is listed only once it has a figure.** Everything else stays on the publications page. This is deliberate: a grid of placeholder boxes is worse than a shorter grid. Figures are shown `object-fit: contain` on a white plate in both themes, never cropped, because a scientific figure cropped to fill a box is a figure you can no longer read.
+### Add an entry to Selected work
 
-## Structure
+This one has a rule. Every entry carries the same four slots, in this order: **the question**, **what we found**, **what would sink it**, **the paper**. That template is the group's own method made structural. An entry with nothing in the third slot is not ready to be a page.
+
+An entry is listed only once there is a figure to show. Work without one lives on the publications page.
+
+1. Put the figure in `assets/img/figures/`
+2. Copy an existing `work/<name>/` directory and rename it
+3. Replace the four slots
+4. Add a tile to the grid in `work/index.html`
+
+### Change the mark or the favicon
+
+`assets/img/mark.svg` is the mark. It carries no colour: it is applied as a CSS mask over the current text colour, so it follows the theme instead of needing a light copy and a dark copy that drift apart.
+
+`assets/img/favicon-v2.svg` is the only coloured version, because a browser tab cannot inherit a colour.
+
+**If you change the favicon, change its filename too.** Browsers cache favicons harder than anything else and will keep showing the old one through a hard refresh. Bump the number and update the three `<link>` lines in every page.
+
+---
+
+## Before you open the pull request
+
+Look at it, then run the check.
+
+```bash
+python3 -m http.server 8000      # then open http://localhost:8000
+python3 .github/scripts/check_site.py
+```
+
+Opening an HTML file straight from Finder will not work, because every path on the site starts from the site root. Use the server.
+
+The check catches the four things that actually take the site down: an unclosed tag, a link to a page that does not exist, a missing image, and a path that forgot its leading slash. It is the same check that runs on the pull request, so if it passes here it passes there.
+
+---
+
+## How a change reaches the site
+
+`main` is what is published, so nothing is pushed to it directly.
+
+1. Branch: `git switch -c people-add-ada`
+2. Commit and push
+3. Open a pull request
+4. The check runs, and one other person reads it
+5. Merge. The site updates in about a minute.
+
+Two people looking at a change catches wrong dates, wrong titles and wrong roles, which no automated check can see. That is the reason for the review, not ceremony.
+
+If something on the live site is wrong and needs to be gone right now, an admin can merge without waiting.
+
+---
+
+## Rules that are not obvious
+
+**Paths start from the site root.** Always `/assets/img/x.jpg`, never `assets/img/x.jpg` and never `../assets/img/x.jpg`. One form everywhere means moving a page cannot break its images.
+
+**Pages are directories.** `/research/` is `research/index.html`. That is how the URL stays free of `.html`. A new page is a new directory with an `index.html` in it.
+
+**Photographs are cropped in the file, never by CSS.** A CSS crop changes with the window, which is how you end up with a group photograph cut off at the knees on a laptop.
+
+**Colour has to clear WCAG AA.** The measured contrast ratios are in the comments at the top of `assets/css/site.css`. If you change a colour, re-check it. The small monospaced text is always the first thing to fail.
+
+**No placeholder boxes.** If content is not ready, leave it out or mark it with `class="todo"`. A grey rectangle where a photograph should be looks worse than a shorter page.
+
+---
+
+## Reference
+
+### Pages
+
+| URL | File |
+| --- | --- |
+| `/` | `index.html` |
+| `/research/` | `research/index.html` |
+| `/work/` and `/work/<name>/` | `work/index.html`, `work/<name>/index.html` |
+| `/publications/` | `publications/index.html` |
+| `/news/` | `news/index.html` |
+| `/people/` | `people/index.html` |
+| `/join/` | `join/index.html` |
+
+The flat `*.html` files at the root are one-line redirects from the site's earlier URLs. Leave them.
+
+### Files
 
 ```
 assets/
   css/site.css     all styling, one file
-  js/theme.js      the light / dark control
+  js/theme.js      the light and dark control
   img/             photographs, the mark, the favicons
   img/figures/     paper figures used on Selected work
-  brand/           exports the site itself does not load
+  brand/           avatar exports; no page loads these
+.github/
+  scripts/check_site.py    the check, runnable locally
+  workflows/checks.yml     the same check, on every pull request
 ```
 
-Nothing in `assets/brand/` is referenced by any page. It holds the avatar in three treatments, as SVG and as PNG at 1024 and 512, for places that need a square image file: the GitHub organisation, a slide, a conference badge. The organisation avatar has to be uploaded by hand, because the GitHub API has no endpoint for it.
+### Design
 
-The mark spans 58% of the avatar canvas, which keeps it clear of a circular crop as well as a square one. Use the colour version by default: below about 24px the white channels between the three pieces disappear, and hue is what keeps them separable when the geometry no longer can.
+**Palette** is the diverging colormap that every attribution figure uses: a white midpoint, a cool pole, a warm pole. Nothing else.
 
-## Design
+**Structure** is an annotation gutter. Each section carries its metadata in the margin, the way a read model carries its notes.
 
-- **Palette** is the diverging colormap that every attribution figure uses: a white midpoint, a cool pole, a warm pole. Nothing else.
-- **Structure** is an annotation gutter. Each section carries its metadata in the margin, the way a read model carries its notes.
-- **Type** is IBM Plex Sans for structure, IBM Plex Mono for the utility layer, Newsreader for prose. Every display-size heading sets `text-wrap: balance`, so no title ends on an orphaned word.
-- **No decoration.** An earlier draft laid a tinted attribution raster over the group name. At an opacity low enough not to hurt the headline it read as a rendering smudge rather than a figure, so it was removed. If something like it comes back, it has to be legible enough to be recognised as deliberate.
+**Type** is IBM Plex Sans for structure, IBM Plex Mono for the utility layer, Newsreader for prose. Display headings set `text-wrap: balance`, so no title ends on an orphaned word.
 
-### Images
+**No decoration.** An earlier draft laid a tinted raster over the group name. At an opacity low enough not to hurt the headline it read as a rendering smudge, so it went. Anything like it has to be legible enough to be recognised as deliberate.
 
-Photographs are cropped **in the file**, never by a CSS aspect ratio, so a breakpoint can never cut somebody off at the knees. `campus-hero.jpeg` is `sdu-campus.jpeg` cropped to the architecture above the people; the uncropped original stays in the folder as the source.
+**The mark is provisional.** One square, cut twice on the diagonal, the three pieces opened out by an equal amount: a section through something that cannot be opened. Eleven alternatives are set out in the proposals PDF. This one is in place so the site is not empty while that is decided.
 
-Portrait slots are 1:1 at 128px, matching SDU's own square profile photographs. **People without a photograph get no image block at all** rather than a grey placeholder box; each person opens with a hairline rule, so the roster reads as a list either way.
+**Themes** are light and dark, stored in `localStorage`, with the system preference as the starting point on a first visit. A short inline script in each `<head>` settles the theme before first paint, and the button's glyph keys off the same attribute, so the icon is right on the first frame.
 
-### The mark
+### Still to fill in
 
-**Provisional.** One square, cut twice on the diagonal, the three pieces opened out by an equal amount. Nothing is added and nothing removed, and the interior is now visible: a section through something that cannot be opened.
+Search for `class="todo"` to find every placeholder currently on the site.
 
-Ten alternatives, one per angle on interpretability, are set out in `AIML-mark-proposals.pdf` at the root of the working folder. This one is in place so the site is not empty while that is being decided.
-
-`assets/img/mark.svg` has no colour of its own. It is applied as a CSS mask over `currentColor`, so it follows the theme rather than shipping a light copy and a dark copy that eventually drift apart. `assets/img/favicon-v2.svg` is the only coloured version, because a browser tab cannot inherit a colour; its outer pieces sit at the two poles of the palette.
-
-**The favicon filename carries a version number, and changing the icon means bumping it.** Browsers cache favicons far more aggressively than anything else and will keep showing the old one through a hard refresh; a new filename is the only reliable way past that. `favicon-32.png` and `apple-touch-icon.png` are rasters for the places an SVG icon is still not accepted, and both are generated from the same file.
-
-It holds down to 16px, which is the only test a mark has to pass. Do not add detail that fails it.
-
-### Themes
-
-Two states, light and dark, stored in `localStorage`. There is no third "follow the system" state: it was one option too many for a control this small, and it left the icon with nothing honest to show. The system preference is still respected, as the starting point on a first visit.
-
-A short inline script in each `<head>` resolves the stored choice, or the system preference when there is none, and writes it to the root element before first paint. The button's glyph is keyed off that same root attribute in CSS, so the icon is correct on the first frame without waiting for any script.
-
-The glyph is a sun in light and a crescent in dark, masked over `currentColor` like the wordmark, so the control is drawn in the theme it sets. The icon shows the theme you are in; the label says what a click will do.
-
-Every text colour clears WCAG AA against its background in both themes, including the 10 to 12px mono utility layer. Measured ratios are in the comments at the top of `site.css`. If you change a colour, re-check it; the small mono text is the first thing to fail.
-
-## Before this goes live
-
-Search the source for `class="todo"` to find every placeholder. Currently:
-
-- news dates
-- research lines and photographs for the members
-- Rebecca De Rosa's role
-- collaborator names
-- DOIs and PDF links on publications
-- funding status and deadlines for the PhD call
-- a shared group email address
-
-One thing to verify before publishing, because it was reconstructed from public sources rather than supplied: **author orders and venues** on the 2026 preprints and the KES 2025 paper.
-
-The group is based in **Sønderborg**. Note that the lead's public SDU listing shows Odense, so if a visitor cross-checks, the two will not match. Worth aligning the SDU profile.
-
-Also worth deciding: the Centre already hosts a **Data and Intelligence Lab**. The site does not currently say how this group relates to it.
-
-## Publishing
-
-GitHub Pages, from the `main` branch root. Settings → Pages → Deploy from a branch → `main` / `(root)`.
-
-## Research lines
-
-Four, in this order: **interpretability**, **representation learning**, **imaging and biosignals**, **language and software**.
-
-There is deliberately **no verification line**. The word pulls the group toward compliance and conformity assessment, which is not where the work sits. Where the question is genuinely about whether a claim holds up, the site says **evaluation**: what a benchmark is actually measuring, what an invariance test would have to look like, what survives the move from a paper to a running service. The Open-Box Fallacy paper stays on the publications page, because it is real, but it does not set the framing.
-
-## Writing
-
-Headlines are one declarative sentence ending in a full stop, and each states a position rather than describing the page's layout. They are also load-bearing against duplication: no claim should appear as a headline on one page and as prose on another. Two things that used to be repeated and are now stated once each: the falsifier idea (front page prose, then the method section on `/research/`) and the research-line names (short claims on the front page, descriptive headings on `/research/`).
-
-If a line is added or removed, three places have to agree: the entry list on `index.html`, the numbered sections on `research/index.html`, and the tile keys on `work/index.html`.
+Two things to verify against a source rather than trusting the page: author orders and venues on the 2026 preprints, and the campus a member is actually based at.
