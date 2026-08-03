@@ -203,3 +203,4 @@ assets/
 Search for `class="todo"` to find every placeholder currently on the site.
 
 Two things to verify against a source rather than trusting the page: author orders and venues on the 2026 preprints, and the campus a member is actually based at.
+
