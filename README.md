@@ -124,7 +124,9 @@ The `id` matters: the check verifies that every `#fragment` on the site resolves
 1. **Serkan Ayvaz and Toygar Tanyel both on a paper → it is the group's**, whatever it is about.
 2. **Otherwise, "done at SDU" follows Ayvaz's appointment.** He has been at the Centre for Industrial Software since August 2023. A paper of his from before that is his earlier work, not the group's — which is why the 2021 predictive-maintenance paper sits under *Before and elsewhere* alongside work by members with no Ayvaz co-authorship at all.
 
-The consequence on `/publications/` is the *Before and elsewhere* band. The consequence on `/research/` is that the two medical studies are labelled `Earlier study &middot; not SDU work`, their slot reads "What the study found" rather than "What we found", and the imaging section says outright that they were done with clinical teams in Istanbul.
+The consequence on `/publications/` is the *What members bring* band. On `/research/` the imaging section says outright that the two studies under it were done with clinical teams in Istanbul, and their middle slot reads "What the study found" where the group's own studies read "What we found".
+
+Say it once, in prose, and let a quiet marker carry the rest. An earlier draft also stamped each of those two studies `Earlier study · not SDU work`, which repeated what the paragraph above them already said and put a denial on the card of work that stands perfectly well on its own.
 
 **Do not claim partners the group does not have.** The centre's remit is research with industry and that is a fact about the centre; it is not evidence that this group has a company partner, a deployment, or a clinical collaboration of its own. Name a collaboration once it exists, never retrospectively. A member's prior industrial or clinical work belongs on that member's own CV, not in the group's description of itself.
 
