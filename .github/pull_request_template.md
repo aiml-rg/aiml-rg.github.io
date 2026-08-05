@@ -12,6 +12,11 @@
 Only if the change touches these:
 
 - [ ] New photograph is cropped in the file and under 1.5 MB
-- [ ] New person has a real role, not a guess
-- [ ] New Selected work entry fills all four slots, including "what would sink it"
+- [ ] New person has a real role taken from a source, not a guess, and no pronouns
+- [ ] New publication: every author in printed order, no `et al.`, title links to the
+      record, and the DOI or arXiv id was resolved to check the authors
+- [ ] New publication earns its band, and is not a second paper on a topic already
+      covered by a stronger one
+- [ ] Work not done at SDU is not presented as the group's
+- [ ] New study fills all three slots and its `id` is in the contents list
 -->

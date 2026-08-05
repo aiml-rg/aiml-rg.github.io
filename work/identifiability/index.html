@@ -2,119 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script>(function(){try{var t=localStorage.getItem("aiml-theme");if(t!=="light"&&t!=="dark"){t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
-<title>Self-reports do not identify self-models &middot; Applied and Interpretable Machine Learning Research Group</title>
-<meta name="description" content="A model describing its own reasoning does not, on its own, tell you what that reasoning was.">
-<link rel="icon" href="/assets/img/favicon-v2.svg" type="image/svg+xml">
-<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
-<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css">
+<title>Moved</title>
+<link rel="canonical" href="https://aiml-sdu.github.io/research/">
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url=/research/#identifiability">
 </head>
 <body>
-
-<a class="skip" href="#main">Skip to content</a>
-
-<header class="masthead">
-  <div class="shell">
-    <a class="mark" href="/"><span class="mark-glyph" aria-hidden="true"></span><span class="mark-text">Applied and Interpretable<small>Machine Learning Research Group</small></span></a>
-    <nav class="nav" aria-label="Primary">
-      <a href="/research/">research</a>
-      <a class="on" href="/work/">work</a>
-      <a href="/publications/">publications</a>
-      <a href="/people/">people</a>
-      <a href="/news/">news</a>
-      <a href="/join/">join</a>
-    </nav>
-    <button class="theme" type="button" data-theme-toggle aria-label="Switch theme"></button>
-  </div>
-</header>
-
-<main id="main">
-
-  <section class="pagehead">
-    <div class="shell">
-      <p class="kicker"><a href="/work/">Selected work</a> &middot; Interpretability</p>
-      <h1>Self-reports do not identify self-models</h1>
-      <p class="standfirst">A model describing its own reasoning does not, on its own, tell you what that reasoning was.</p>
-    </div>
-  </section>
-
-  <section class="band">
-    <div class="shell">
-      <div class="margin"><b>Figure</b></div>
-      <div class="column">
-        <figure class="figure">
-          <div class="plate full"><img src="/assets/img/figures/identifiability.png" alt="Four-panel schematic: the same observed report distribution is compatible with a grounded and a prompt-bound mechanism, separated only under intervention." loading="lazy"></div>
-          <figcaption class="caption">Two mechanisms produce the same reports and disagree only under intervention. Figure 1 from the paper.</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="band">
-    <div class="shell">
-      <div class="margin"><b>The work</b><em>Every entry here carries the same four slots.</em></div>
-      <div class="column">
-        <div class="slot">
-          <div class="slot-key">The question</div>
-          <div class="slot-body"><p>When a model explains why it answered as it did, does the explanation constrain what the underlying computation could have been? A great deal of interest in chain-of-thought and self-explanation quietly assumes that it does.</p></div>
-        </div>
-        <div class="slot">
-          <div class="slot-key">What we found</div>
-          <div class="slot-body"><p>Not on its own. A self-report is evidence about behaviour in a prompt environment, and a mechanism that never reads the intervened hidden state can reproduce exactly the same reports as one that does. The two are observationally equivalent and separate only under intervention.</p>
-          <p>The test that separates them is cheap. Hold the named intervention fixed and shift the demonstration environment around it. Across three open instruction models, <strong>wrong-source demonstrations pull the reports toward the source answer family</strong>, and binding the mechanism explicitly reduces that pull. So the accuracy of a self-report benchmark is not yet evidence of an autonomous report mechanism, and the fix is an invariance test rather than an abandoned method.</p></div>
-        </div>
-        <div class="slot">
-          <div class="slot-key">What would sink it</div>
-          <div class="slot-body"><p>If wrong-source demonstrations had left the reports unmoved, the reports would already be bound to the intervention and the invariance test would be unnecessary.</p></div>
-        </div>
-        <div class="slot">
-          <div class="slot-key">Paper</div>
-          <div class="slot-body"><p>P. M. Konrad, T. Tanyel, S. Ayvaz &middot; <span class="venue">ICML 2026 Workshop on Philosophy of Machine Learning</span> &middot; oral</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="strip">
-    <div class="shell">
-      <p class="line">All four are written to the same four slots, which makes them quick to compare.</p>
-      <span class="to"><a class="arrow" href="/work/">All selected work &rarr;</a></span>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="shell">
-    <div>
-      <b>Applied and Interpretable Machine Learning Research Group</b>
-      Centre for Industrial Software<br>
-      M&aelig;rsk Mc-Kinney M&oslash;ller Institute<br>
-      University of Southern Denmark<br>
-      S&oslash;nderborg, Denmark
-    </div>
-    <div>
-      <b>Pages</b>
-      <a href="/research/">Research</a><br>
-      <a href="/work/">Selected work</a><br>
-      <a href="/publications/">Publications</a><br>
-      <a href="/people/">People</a><br>
-      <a href="/news/">News</a><br>
-      <a href="/join/">Join</a>
-    </div>
-    <div>
-      <b>Elsewhere</b>
-      <a href="https://www.sdu.dk/en/forskning/cis">SDU CIS</a><br>
-      <a href="https://github.com/aiml-sdu">GitHub</a>
-    </div>
-  </div>
-</footer>
-
-<script src="/assets/js/theme.js"></script>
+<p>This page has moved to <a href="/research/#identifiability">/research/#identifiability</a>.</p>
 </body>
 </html>

@@ -2,120 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script>(function(){try{var t=localStorage.getItem("aiml-theme");if(t!=="light"&&t!=="dark"){t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
-<title>Instruction tuning routes moral framing, it does not create it &middot; Applied and Interpretable Machine Learning Research Group</title>
-<meta name="description" content="The direction was already in the pretrained network. Tuning connected it to the part that answers.">
-<link rel="icon" href="/assets/img/favicon-v2.svg" type="image/svg+xml">
-<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
-<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css">
+<title>Moved</title>
+<link rel="canonical" href="https://aiml-sdu.github.io/research/">
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url=/research/#readout">
 </head>
 <body>
-
-<a class="skip" href="#main">Skip to content</a>
-
-<header class="masthead">
-  <div class="shell">
-    <a class="mark" href="/"><span class="mark-glyph" aria-hidden="true"></span><span class="mark-text">Applied and Interpretable<small>Machine Learning Research Group</small></span></a>
-    <nav class="nav" aria-label="Primary">
-      <a href="/research/">research</a>
-      <a class="on" href="/work/">work</a>
-      <a href="/publications/">publications</a>
-      <a href="/people/">people</a>
-      <a href="/news/">news</a>
-      <a href="/join/">join</a>
-    </nav>
-    <button class="theme" type="button" data-theme-toggle aria-label="Switch theme"></button>
-  </div>
-</header>
-
-<main id="main">
-
-  <section class="pagehead">
-    <div class="shell">
-      <p class="kicker"><a href="/work/">Selected work</a> &middot; Representation learning</p>
-      <h1>Instruction tuning routes moral framing, it does not create it</h1>
-      <p class="standfirst">Decoded but unused. The direction was already in the pretrained network; tuning connected it to the part that answers.</p>
-    </div>
-  </section>
-
-  <section class="band">
-    <div class="shell">
-      <div class="margin"><b>Figure</b></div>
-      <div class="column">
-        <figure class="figure">
-          <div class="plate full"><img src="/assets/img/figures/attribution.png" alt="A grid of attention heads by layer, with a few heads marked as writers and antagonists to the judgment direction." loading="lazy"></div>
-          <figcaption class="caption">Per-head attribution into the judgment direction, with the selected heads then mean-ablated. Figure 3 from the paper.</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="band">
-    <div class="shell">
-      <div class="margin"><b>The work</b><em>Every entry here carries the same four slots.</em></div>
-      <div class="column">
-        <div class="slot">
-          <div class="slot-key">The question</div>
-          <div class="slot-body"><p>When an instruction-tuned model starts treating a moral question differently from its base model, has post-training built a new representation, or has it wired up one that was already present?</p></div>
-        </div>
-        <div class="slot">
-          <div class="slot-key">What we found</div>
-          <div class="slot-body"><p>The comparison uses a matched pretrained and instruction-tuned checkpoint from the same architecture, tokeniser and pretraining seed, so the post-training step is the only free variable. Without that control, any difference between two models can be attributed to pretraining instead.</p>
-          <p>Moral framing is already linearly decodable in the pretrained network, and it has no causal effect on that network's judgment. In the instruction-tuned checkpoint the same representation becomes aligned with, and causally usable by, the evaluative readout: the within-model framing-to-judgment alignment is <strong>8.4 times larger</strong> than in the matched pretrained checkpoint at the same layer.</p>
-          <p>So the capability was not installed. It was already there and unused, and tuning changed how it is read out. Probes, the logit lens, residual activation patching and a within-model alignment cosine all point the same way, and per-head attribution followed by mean ablation identifies which heads actually carry it.</p></div>
-        </div>
-        <div class="slot">
-          <div class="slot-key">What would sink it</div>
-          <div class="slot-body"><p>The account is falsifiable in three places. The framing should already be decodable before tuning, tuning should align it with the readout, and intervening on the aligned direction should move the judgment. Any one of those failing breaks it.</p></div>
-        </div>
-        <div class="slot">
-          <div class="slot-key">Paper</div>
-          <div class="slot-body"><p>P. M. Konrad, T. Tanyel, S. Ayvaz &middot; <span class="venue">ICML 2026 Workshop</span></p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="strip">
-    <div class="shell">
-      <p class="line">All four are written to the same four slots, which makes them quick to compare.</p>
-      <span class="to"><a class="arrow" href="/work/">All selected work &rarr;</a></span>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="shell">
-    <div>
-      <b>Applied and Interpretable Machine Learning Research Group</b>
-      Centre for Industrial Software<br>
-      M&aelig;rsk Mc-Kinney M&oslash;ller Institute<br>
-      University of Southern Denmark<br>
-      S&oslash;nderborg, Denmark
-    </div>
-    <div>
-      <b>Pages</b>
-      <a href="/research/">Research</a><br>
-      <a href="/work/">Selected work</a><br>
-      <a href="/publications/">Publications</a><br>
-      <a href="/people/">People</a><br>
-      <a href="/news/">News</a><br>
-      <a href="/join/">Join</a>
-    </div>
-    <div>
-      <b>Elsewhere</b>
-      <a href="https://www.sdu.dk/en/forskning/cis">SDU CIS</a><br>
-      <a href="https://github.com/aiml-sdu">GitHub</a>
-    </div>
-  </div>
-</footer>
-
-<script src="/assets/js/theme.js"></script>
+<p>This page has moved to <a href="/research/#readout">/research/#readout</a>.</p>
 </body>
 </html>
