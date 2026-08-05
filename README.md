@@ -67,7 +67,9 @@ Three bands, and an entry has to earn the one it goes in:
 
 - **Peer-reviewed** — through review somewhere real. A journal, a conference, a named workshop.
 - **Preprints** — the group's current work, honest about not having been refereed.
-- **Before the group** — a short set of earlier papers by members, each carrying something the group is built on: clinical machine learning built with hospital teams, industrial machine learning in production.
+- **What members bring** — a short set of papers members did elsewhere, each carrying something the group is built on: clinical machine learning built with hospital teams, industrial machine learning running in production.
+
+  Two things to keep right in the wording here. Frame it as what it adds, not as where it was not done: a disclaimer reads as an apology for work that needs none. But what a member brings is the **experience** of having done it, not the collaborations themselves — the hospital teams are in Istanbul and stayed there. "Members brought the experience" is true; "the work came here with them" quietly hands the group a clinical partnership it does not have.
 
 **What does not go on.** A paper at a venue nobody outside its own country indexes. A paper off all four research lines that only pads the count. A second paper on a topic where a stronger one is already listed. Four entries were removed for exactly these reasons when the list was last revised, and removing them made the page stronger, because a reader who spots one weak entry starts discounting the rest.
 
