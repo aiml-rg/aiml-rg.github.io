@@ -61,7 +61,9 @@ For a portrait, 1:1 square is the shape the page expects.
 
 ### Add a publication
 
-**This list is selected, not complete.** That is the whole point of it, and the page says so in its own headline. Members' full records are linked at the bottom of the page, and that is where completeness belongs.
+**This list is selected, not complete.** That is the whole point of it. Members' full records are linked at the bottom of the page, and that is where completeness belongs.
+
+The page does not say any of this about itself. An earlier headline read "The group is new, so this is a short list", which was both an apology nobody asked for and untrue: the list is short because it is chosen, not because there is little to choose from. Serkan alone has fifty research outputs on the SDU portal. Selection is an editorial policy, and it belongs here, not in the reader's face.
 
 Three bands, and an entry has to earn the one it goes in:
 
