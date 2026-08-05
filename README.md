@@ -128,6 +128,8 @@ The consequence on `/publications/` is the *What members bring* band. On `/resea
 
 Say it once, in prose, and let a quiet marker carry the rest. An earlier draft also stamped each of those two studies `Earlier study · not SDU work`, which repeated what the paragraph above them already said and put a denial on the card of work that stands perfectly well on its own.
 
+**A link has to earn its place too.** The Pioneer Centre listing was on this page twice: first as a sentence claiming an affiliation no source characterises, then as a link. The link went too, because the destination is 202 characters long — a name, a title, an email and an "Edit this profile" button. It told a reader less than the SDU link directly above it. If that affiliation is substantive, state the substance; a pointer at an empty profile is not evidence of anything.
+
 **Do not claim partners the group does not have.** The centre's remit is research with industry and that is a fact about the centre; it is not evidence that this group has a company partner, a deployment, or a clinical collaboration of its own. Name a collaboration once it exists, never retrospectively. A member's prior industrial or clinical work belongs on that member's own CV, not in the group's description of itself.
 
 ### Change the mark or the favicon
