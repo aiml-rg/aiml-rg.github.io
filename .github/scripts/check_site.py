@@ -74,6 +74,41 @@ def target_for(url):
 
 
 LINK = re.compile(r'(?:href|src)="([^"]+)"')
+ID = re.compile(r'\bid="([^"]+)"')
+# A redirect stub's real destination lives in a meta refresh, which the link
+# regex above cannot see. Eleven of the site's pages are stubs and exist only
+# to send a reader somewhere, so a typo in one is a silently dead old URL.
+REFRESH = re.compile(r'<meta\s+http-equiv="refresh"\s+content="[^"]*?url=([^"\s]+)"',
+                     re.I)
+
+# Anchors have to be collected before the link pass, because a page can link
+# to a fragment on a page that has not been read yet. This matters more than
+# it looks: the studies live at /research/#ecg and the citation author names
+# link to /people/#tanyel, so a mistyped id drops the reader silently at the
+# top of a long page with nothing to indicate anything went wrong.
+ids_by_page = {}
+for rel, full in pages():
+    ids_by_page[rel] = set(ID.findall(open(full, encoding='utf-8').read()))
+
+
+def fragment_missing(url, rel):
+    """The fragment a link asks for, if the target page does not carry it."""
+    if '#' not in url:
+        return None
+    frag = url.split('#', 1)[1].split('?')[0]
+    if not frag:
+        return None
+    if url.startswith('#'):
+        target_rel = rel
+    else:
+        target = target_for(url)
+        if not os.path.exists(target):
+            return None          # already reported as a missing page
+        target_rel = os.path.relpath(target, ROOT)
+    if frag not in ids_by_page.get(target_rel, set()):
+        return f'"{url}" points at #{frag}, which {target_rel} does not have'
+    return None
+
 
 for rel, full in sorted(pages()):
     text = open(full, encoding='utf-8').read()
@@ -85,8 +120,28 @@ for rel, full in sorted(pages()):
     for tag, line in checker.stack:
         fail(rel, f"line {line}: <{tag}> is never closed")
 
+    # A stub's destination is in its meta refresh, so check it like a link.
+    for url in REFRESH.findall(text):
+        if url.startswith(('http://', 'https://')):
+            continue
+        if not url.startswith('/'):
+            fail(rel, f'redirect to "{url}" is missing its leading slash')
+        elif not os.path.exists(target_for(url)):
+            fail(rel, f'redirects to "{url}", which does not exist')
+        else:
+            broken = fragment_missing(url, rel)
+            if broken:
+                fail(rel, f'redirect {broken}')
+
     for url in LINK.findall(text):
-        if url.startswith(('http://', 'https://', 'mailto:', 'data:', '#')):
+        if url.startswith(('http://', 'https://', 'mailto:', 'data:')):
+            continue
+
+        broken_anchor = fragment_missing(url, rel)
+        if broken_anchor:
+            fail(rel, broken_anchor)
+
+        if url.startswith('#'):
             continue
 
         # Every path on this site is root-relative. A missing leading slash

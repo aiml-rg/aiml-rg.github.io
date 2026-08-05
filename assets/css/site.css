@@ -34,6 +34,12 @@
   --maxw: 1140px;
   --gutter: 156px;
   --gap: 40px;
+
+  /* Height of the sticky masthead. Every study URL and every citation author
+     link is a fragment, so anchored targets are offset by this; if the two
+     drift apart, anchors land underneath the header. Redeclared at each
+     breakpoint where the masthead changes rows, immediately below. */
+  --masthead: 66px;
 }
 
 /* System preference, unless the reader has explicitly chosen light. */
@@ -176,8 +182,8 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .nav {
   margin-left: auto;
   display: flex;
-  /* Six items at 12px mono need about 374px, so below roughly 430px they have
-     to wrap or the last one is simply unreachable. */
+  /* Four items at 12px mono need about 278px. It wrapped at six and could
+     still wrap on a narrow phone, so the wrap stays. */
   flex-wrap: wrap;
   gap: 24px;
   font-family: var(--mono);
@@ -217,7 +223,15 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 /* The paper figures run from 2.5:1 to 4.4:1. Fitted to a phone's width the
    widest becomes a 67px smudge, so below 600px they keep a legible width and
    the frame scrolls instead. The clipped edge inside the border is the cue. */
+/* The mark and the nav stop sharing a row at about 650px, which adds a row
+   and the shell's 28px gap to the masthead. */
+@media (max-width: 719px) {
+  :root { --masthead: 113px; }
+}
+
 @media (max-width: 600px) {
+  :root { --masthead: 130px; }
+
   .plate.full { overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 14px; }
   .plate.full img { min-width: 660px; }
 
@@ -265,7 +279,6 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   border-top: 1px solid var(--rule);
 }
 
-.band.first { border-top: none; }
 
 .band .shell {
   display: grid;
@@ -343,7 +356,8 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   color: var(--ink);
 }
 
-/* ---------- entry list (research areas, news, people rows) ---------- */
+/* ---------- entry list (research lines on the home page, openings on
+   join, the index on 404) ---------- */
 
 .entries { border-top: 1px solid var(--rule-2); }
 
@@ -410,6 +424,30 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   letter-spacing: -0.008em;
 }
 
+.pub-title a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--rule); }
+.pub-title a:hover { border-bottom-color: var(--ink); }
+
+/* One citation shape everywhere: title, then every author in published
+   order, then venue. Authors sit above the venue because the author line
+   is the longest and wraps; keeping it out of the venue line means the
+   venue never breaks mid-name. Group members are links, nothing is bold:
+   with seven members on a paper, bolding half an author list is louder
+   than the paper. */
+.pub-authors {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  margin: 0 0 3px;
+  max-width: 74ch;
+}
+
+.pub-authors a {
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule-2);
+}
+.pub-authors a:hover { border-bottom-color: var(--ink-3); }
+
 .pub-meta {
   font-family: var(--sans);
   font-size: 14px;
@@ -432,7 +470,6 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   vertical-align: 1.5px;
 }
 
-.tag.hot { color: var(--warm); border-color: var(--warm); }
 
 /* ---------- people ---------- */
 
@@ -448,9 +485,12 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 /* Each person opens with a rule, so the column reads as a list whether
    or not a photograph exists yet. People without one simply have no
    image block; there is no placeholder box to look at. */
+/* Author names in a citation link to the person's card, so the card is an
+   anchor target and has to clear the sticky masthead. */
 .person {
   border-top: 1px solid var(--rule);
   padding-top: 14px;
+  scroll-margin-top: calc(var(--masthead) + 22px);
 }
 
 .person .portrait {
@@ -526,29 +566,6 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* Photographs are cropped in the file, not by the frame, so nobody is
    ever cut off at the knees by a breakpoint. */
-
-.frame.slot {
-  aspect-ratio: 16 / 9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-image: repeating-linear-gradient(
-    135deg,
-    transparent 0 9px,
-    var(--rule-2) 9px 10px
-  );
-}
-
-.frame.slot span {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  background: var(--paper);
-  padding: 5px 10px;
-  border: 1px solid var(--rule);
-}
 
 .caption {
   font-family: var(--mono);
@@ -671,13 +688,12 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* ---------- utilities ---------- */
 
-.stack-24 > * + * { margin-top: 24px; }
-.stack-40 > * + * { margin-top: 40px; }
-.muted { color: var(--ink-2); }
 .more { margin: 22px 0 0; }
 .pagehead + .band { padding-top: 56px; }
+
 /* Draft markers. Deliberately quiet: they are notes to the editor, not
-   warnings to the reader. */
+   warnings to the reader. Nothing published should carry one; if you can
+   see one on the live site, it is a bug in the review, not a feature. */
 .todo {
   font-family: var(--mono);
   font-size: 10.5px;
@@ -694,79 +710,81 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
 
-/* ---------- projects ---------- */
+/* ---------- studies ---------- */
 
-/* Figures are the point of this page, so they get a fixed frame and are
-   contained, never cropped. A scientific figure cropped to fill a box is
-   a figure you can no longer read. White plate in both themes: these are
-   paper figures and they were drawn for white. */
-.grid {
-  display: grid;
-  gap: 34px 28px;
-  grid-template-columns: 1fr;
+/* A study sits inside the research line it belongs to, on the same page,
+   rather than on a page of its own. Four studies on four URLs could not be
+   compared without four page loads, and each one needed a masthead, a
+   pagehead and a footer to carry two hundred words. */
+
+/* Offset from --masthead rather than a number of its own, so the two cannot
+   drift. The 22px is breathing room above the heading. */
+.study {
+  scroll-margin-top: calc(var(--masthead) + 22px);
+  border-top: 1px solid var(--rule);
+  padding-top: 26px;
+  margin-top: 44px;
 }
 
-@media (min-width: 700px) {
-  .grid { grid-template-columns: 1fr 1fr; }
-}
-
-.tile { display: block; text-decoration: none; color: inherit; }
-
-.tile .plate {
-  aspect-ratio: 16 / 9;
-  background: #ffffff;
-  border: 1px solid var(--rule);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 18px;
-  overflow: hidden;
-  transition: border-color .15s ease;
-}
-
-.tile .plate img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-}
-
-.tile:hover .plate { border-color: var(--ink-3); }
-.tile:hover .tile-title { text-decoration: underline; text-underline-offset: 3px; }
-
-.tile-key {
+.study-key {
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-3);
-  margin: 13px 0 4px;
+  margin: 0 0 6px;
 }
 
-.tile-title {
+/* Between .h2 (a research line) and .h3 (a slot label). */
+.study-title {
   font-family: var(--sans);
   font-weight: 600;
-  font-size: 17px;
-  line-height: 1.3;
-  letter-spacing: -0.012em;
+  font-size: clamp(18px, 2vw, 21px);
+  line-height: 1.28;
+  letter-spacing: -0.014em;
   text-wrap: balance;
-  margin: 0 0 5px;
+  margin: 0 0 8px;
+  max-width: 34ch;
   color: var(--ink);
 }
 
-.tile-line {
+.study-line {
   font-family: var(--serif);
-  font-size: 15.5px;
+  font-size: 16.5px;
   line-height: 1.5;
   color: var(--ink-2);
-  margin: 0;
-  max-width: 46ch;
+  margin: 0 0 22px;
+  max-width: 52ch;
 }
 
-/* A project page carries the same four slots every time: the question,
-   the figure, what was found, and what would have sunk it. The template
-   is the group's method, made structural. */
+/* Contents list. On a page this long the reader needs to see the shape of
+   it before committing to the scroll. */
+.jump {
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--ink-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  columns: 2;
+  column-gap: 28px;
+}
+
+@media (max-width: 560px) {
+  .jump { columns: 1; }
+}
+
+/* A study is indented under the research line it belongs to. Indentation
+   rather than a leading dash: a dash at the start of a list item reads as
+   sentence punctuation instead of hierarchy. */
+.jump .sub { padding-left: 20px; }
+
+.jump a { color: var(--ink-2); border-bottom: 1px solid var(--rule-2); }
+.jump a:hover { color: var(--ink); border-bottom-color: var(--ink-3); }
+
+/* Every study carries the same three slots: the question, what was found,
+   and the paper. The template is the group's method made structural. */
 .slot {
   border-top: 1px solid var(--rule-2);
   padding: 20px 0;
@@ -799,6 +817,40 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .slot-body p:last-child { margin-bottom: 0; }
 .slot-body strong { font-weight: 600; }
 
+/* A citation inside a study slot takes the same shape as one on the
+   publications page, so the reader learns the format once. These have to
+   restate font and size because `.slot-body p` outranks `.pub-title` on
+   specificity and would otherwise set the citation in reading serif. */
+.slot-body .pub-title {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 16.5px;
+  line-height: 1.4;
+  letter-spacing: -0.008em;
+  margin: 0 0 4px;
+  max-width: 74ch;
+}
+
+.slot-body .pub-authors {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  margin: 0 0 3px;
+  max-width: 74ch;
+}
+
+.slot-body .pub-meta {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  margin: 0;
+  max-width: 74ch;
+}
+
 .plate.full {
   background: #ffffff;
   border: 1px solid var(--rule);
@@ -806,4 +858,3 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 }
 .plate.full img { width: 100%; height: auto; }
 
-.arrow.gap { margin-left: 26px; }

@@ -23,10 +23,8 @@
     <a class="mark" href="/"><span class="mark-glyph" aria-hidden="true"></span><span class="mark-text">Applied and Interpretable<small>Machine Learning Research Group</small></span></a>
     <nav class="nav" aria-label="Primary">
       <a href="/research/">research</a>
-      <a href="/work/">work</a>
       <a href="/publications/">publications</a>
-      <a class="on" href="/people/">people</a>
-      <a href="/news/">news</a>
+      <a class="on" aria-current="page" href="/people/">people</a>
       <a href="/join/">join</a>
     </nav>
     <button class="theme" type="button" data-theme-toggle aria-label="Switch theme"></button>
@@ -38,8 +36,8 @@
   <section class="pagehead">
     <div class="shell">
       <p class="kicker">People</p>
-      <h1>Everyone here works on something they can explain end to end.</h1>
-      <p class="standfirst">From the measurement to the claim. The group runs across four research lines and spans bachelor's thesis students through to senior researchers. This page is being completed; several members are not yet listed.</p>
+      <h1>The group at the Centre for Industrial Software, and one position open.</h1>
+      <p class="standfirst">Members work across the four research lines, from bachelor&rsquo;s projects to PhD work.</p>
     </div>
   </section>
 
@@ -47,19 +45,18 @@
     <div class="shell">
       <div class="margin">
         <b>Lead</b>
-        Centre for Industrial Software<br>
-        Mærsk Mc-Kinney Møller Institute
       </div>
       <div class="column">
         <div class="roster solo">
-          <div class="person">
-            <div class="portrait"><img src="/assets/img/serkan-ayvaz.jpg" alt="Serkan Ayvaz" width="546" height="546" loading="lazy"></div>
+          <div class="person" id="ayvaz">
+            <div class="portrait"><img src="/assets/img/serkan-ayvaz.jpg" alt="" width="546" height="546" loading="lazy"></div>
             <p class="name">Serkan Ayvaz</p>
-            <p class="role">Associate Professor of Software Engineering</p>
-            <p class="line">Machine learning, software architecture and data-intensive systems, from predictive maintenance on production lines to retrieval for language models. PhD in Computer Science, Kent State University. Affiliated with the Pioneer Centre for Artificial Intelligence.</p>
+            <p class="role">Associate Professor</p>
+            <p class="line">Machine learning, software architecture and data-intensive systems, from predictive maintenance on production lines to retrieval for language models. PhD in Computer Science, Kent State University. At SDU since 2023. Affiliated with the Pioneer Centre for Artificial Intelligence.</p>
             <div class="links">
               <a href="https://portal.findresearcher.sdu.dk/en/persons/seay">SDU</a>
               <a href="https://scholar.google.com/citations?user=ihaclQQAAAAJ">Scholar</a>
+              <a href="https://orcid.org/0000-0003-2016-4443">ORCID</a>
               <a href="mailto:seay@mmmi.sdu.dk">Email</a>
             </div>
           </div>
@@ -72,21 +69,22 @@
     <div class="shell">
       <div class="margin">
         <b>Members</b>
-        <em>Several members here are co-authors on the group's work on what evidence a deployment actually warrants. <span class="todo">individual research lines and photographs to be added</span></em>
       </div>
       <div class="column">
         <div class="roster">
 
-          <div class="person">
+          <div class="person" id="terrenzi">
             <div class="portrait pending" aria-hidden="true"><svg viewBox="0 0 100 100"><rect x="37" y="16" width="26" height="26"></rect><polygon points="29,48 71,48 80,86 20,86"></polygon></svg></div>
             <p class="name">Riccardo Terrenzi</p>
             <p class="role">PhD Fellow</p>
+            <p class="line">Dataset search: content-based table retrieval, generated metadata, and provenance in retrieval over knowledge graphs. MSc in Computer Science and Engineering, Politecnico di Milano.</p>
             <div class="links">
               <a href="https://portal.findresearcher.sdu.dk/en/persons/rite">SDU</a>
+              <a href="https://orcid.org/0009-0006-8310-1940">ORCID</a>
             </div>
           </div>
 
-          <div class="person">
+          <div class="person" id="merrild">
             <div class="portrait pending" aria-hidden="true"><svg viewBox="0 0 100 100"><rect x="37" y="16" width="26" height="26"></rect><polygon points="29,48 71,48 80,86 20,86"></polygon></svg></div>
             <p class="name">Ane Cathrine Holst Merrild</p>
             <p class="role">PhD Fellow</p>
@@ -95,11 +93,11 @@
             </div>
           </div>
 
-          <div class="person">
-            <div class="portrait"><img src="/assets/img/toygar-tanyel.jpg" alt="Toygar Tanyel" width="384" height="384" loading="lazy"></div>
+          <div class="person" id="tanyel">
+            <div class="portrait"><img src="/assets/img/toygar-tanyel.jpg" alt="" width="384" height="384" loading="lazy"></div>
             <p class="name">Toygar Tanyel</p>
             <p class="role">Visiting Researcher</p>
-            <p class="line">Interpretability across medical imaging, biosignals and language models, and what survives the move from a paper to a running service. Built the breast-cancer detection stack in what became the first MDR-CE certified radiology AI from Turkiye, and the multi-agent orchestration behind a platform that takes open-ended requests from tens of thousands of people.</p>
+            <p class="line">Interpretability across medical imaging, biosignals and language models, and what survives the move from a paper to a running service. Earlier work on breast cancer detection in screening mammography and counterfactual analysis of ECG.</p>
             <div class="links">
               <a href="https://tanyelai.github.io/">Site</a>
               <a href="https://scholar.google.com/citations?user=Nj5PIzcAAAAJ">Scholar</a>
@@ -107,41 +105,35 @@
             </div>
           </div>
 
-          <div class="person">
+          <div class="person" id="konrad">
             <div class="portrait pending" aria-hidden="true"><svg viewBox="0 0 100 100"><rect x="37" y="16" width="26" height="26"></rect><polygon points="29,48 71,48 80,86 20,86"></polygon></svg></div>
             <p class="name">Phongsakon Mark Konrad</p>
             <p class="role">Research Collaborator</p>
-            <p class="line">Representation learning, and when an observation about a model identifies the mechanism it actually uses. BSc in Software Engineering, SDU; MSc in Machine Learning, University of Tübingen, from October 2026.</p>
+            <p class="line">Representation learning, and when an observation about a model identifies the mechanism it actually uses. BSc in Software Engineering, SDU. Starting an MSc in Machine Learning at the University of T&uuml;bingen in October 2026.</p>
             <div class="links">
               <a href="https://phomarkon.github.io/">Site</a>
               <a href="https://scholar.google.com/citations?user=zPHjLREAAAAJ">Scholar</a>
+              <a href="https://orcid.org/0009-0004-2521-7879">ORCID</a>
             </div>
           </div>
 
-
-          <div class="person">
-            <div class="portrait pending" aria-hidden="true"><svg viewBox="0 0 100 100"><rect x="37" y="16" width="26" height="26"></rect><polygon points="29,48 71,48 80,86 20,86"></polygon></svg></div>
-            <p class="name">Tim Lukas Adam</p>
-            <p class="role">Bachelor Student</p>
-          </div>
-
-          <div class="person">
+          <div class="person" id="derosa">
             <div class="portrait pending" aria-hidden="true"><svg viewBox="0 0 100 100"><rect x="37" y="16" width="26" height="26"></rect><polygon points="29,48 71,48 80,86 20,86"></polygon></svg></div>
             <p class="name">Rebecca De Rosa</p>
             <p class="role">Researcher</p>
-            <p class="line"><span class="todo">role to confirm</span></p>
           </div>
 
-          <div class="person">
-            <p class="name">Further members</p>
-            <p class="role">Listing in progress</p>
-            <p class="line">The group is larger than this list. Remaining members are being added as their profiles are confirmed.</p>
+          <div class="person" id="adam">
+            <div class="portrait pending" aria-hidden="true"><svg viewBox="0 0 100 100"><rect x="37" y="16" width="26" height="26"></rect><polygon points="29,48 71,48 80,86 20,86"></polygon></svg></div>
+            <p class="name">Tim Lukas Adam</p>
+            <p class="role">Bachelor Student</p>
+            <p class="line">Evaluation of language models on cloud architecture knowledge, and conformal prediction.</p>
           </div>
 
           <div class="person">
             <p class="name">Open position</p>
-            <p class="role">PhD Fellow</p>
-            <p class="line">We are recruiting. See the join page for what the position covers and how to write to us.</p>
+            <p class="role">PhD</p>
+            <p class="line">Three to four years, based in S&oslash;nderborg. Write to us before applying.</p>
             <div class="links"><a href="/join/">Details</a></div>
           </div>
 
@@ -153,49 +145,17 @@
   <section class="band">
     <div class="shell">
       <div class="margin">
-        <b>Collaborators</b>
-        <em>Partners on the clinical, industrial and academic sides. <span class="todo">names to be added</span></em>
-      </div>
-      <div class="column">
-        <div class="entries">
-          <div class="entry">
-            <div class="entry-key">Clinical</div>
-            <div class="entry-body"><p>Hospital and clinical research partners for the imaging and biosignal work.</p></div>
-          </div>
-          <div class="entry">
-            <div class="entry-key">Industry</div>
-            <div class="entry-body"><p>Companies working with the Centre for Industrial Software on deployed machine learning.</p></div>
-          </div>
-          <div class="entry">
-            <div class="entry-key">Academic</div>
-            <div class="entry-body"><p>Co-authors and visiting researchers at other institutions.</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="band">
-    <div class="shell">
-      <div class="margin">
         <b>Where we are</b>
-        Sønderborg
+        S&oslash;nderborg
       </div>
       <div class="column">
         <figure class="figure">
           <div class="frame">
             <img src="/assets/img/group-lab.jpeg" alt="Three members of the group at the Centre for Industrial Software, beside a lab banner and a server rack." width="2048" height="1536">
           </div>
-          <figcaption class="caption">At the Centre for Industrial Software, SDU Sønderborg.</figcaption>
+          <figcaption class="caption">At the Centre for Industrial Software, SDU S&oslash;nderborg.</figcaption>
         </figure>
       </div>
-    </div>
-  </section>
-
-  <section class="strip">
-    <div class="shell">
-      <p class="line">We are recruiting PhD candidates and supervising bachelor's and master's theses.</p>
-      <span class="to"><a class="arrow" href="/join/">How to apply &rarr;</a></span>
     </div>
   </section>
 
@@ -206,17 +166,15 @@
     <div>
       <b>Applied and Interpretable Machine Learning Research Group</b>
       Centre for Industrial Software<br>
-      Mærsk Mc-Kinney Møller Institute<br>
+      M&aelig;rsk Mc-Kinney M&oslash;ller Institute<br>
       University of Southern Denmark<br>
-      Sønderborg, Denmark
+      S&oslash;nderborg, Denmark
     </div>
     <div>
       <b>Pages</b>
       <a href="/research/">Research</a><br>
-      <a href="/work/">Selected work</a><br>
       <a href="/publications/">Publications</a><br>
       <a href="/people/">People</a><br>
-      <a href="/news/">News</a><br>
       <a href="/join/">Join</a>
     </div>
     <div>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>(function(){try{var t=localStorage.getItem("aiml-theme");if(t!=="light"&&t!=="dark"){t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
 <title>Research &middot; Applied and Interpretable Machine Learning Research Group</title>
-<meta name="description" content="Representation learning, interpretability, imaging and biosignals, and language models in practice, at the Centre for Industrial Software, SDU.">
+<meta name="description" content="Interpretability, representation learning, imaging and biosignals, and language models in practice, at the Centre for Industrial Software, SDU.">
 <link rel="icon" href="/assets/img/favicon-v2.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
@@ -22,11 +22,9 @@
   <div class="shell">
     <a class="mark" href="/"><span class="mark-glyph" aria-hidden="true"></span><span class="mark-text">Applied and Interpretable<small>Machine Learning Research Group</small></span></a>
     <nav class="nav" aria-label="Primary">
-      <a class="on" href="/research/">research</a>
-      <a href="/work/">work</a>
+      <a class="on" aria-current="page" href="/research/">research</a>
       <a href="/publications/">publications</a>
       <a href="/people/">people</a>
-      <a href="/news/">news</a>
       <a href="/join/">join</a>
     </nav>
     <button class="theme" type="button" data-theme-toggle aria-label="Switch theme"></button>
@@ -38,46 +36,99 @@
   <section class="pagehead">
     <div class="shell">
       <p class="kicker">Research</p>
-      <h1>Borrowed instruments arrive as metaphors unless something stops them.</h1>
-      <p class="standfirst">Four lines of work, one method. Each borrows a mature instrument from a field that has already been rigorous about measurement, states exactly what maps to what, and names the observation that would sink it.</p>
+      <h1>Four lines of work, and four studies shown in full.</h1>
+      <p class="standfirst">Each line borrows an instrument from a field that has already been rigorous about measurement, and holds itself to saying what maps onto what.</p>
     </div>
   </section>
 
   <section class="band">
     <div class="shell">
       <div class="margin">
-        <b>Method</b>
-        The discipline of import
-        <em>Three things every project carries before it is allowed to produce a result.</em>
+        <b>Contents</b>
+      </div>
+      <div class="column">
+        <nav aria-label="Contents"><ul class="jump">
+          <li><a href="#method">On borrowing</a></li>
+          <li><a href="#interpretability">01 &nbsp;Interpretability</a></li>
+          <li class="sub"><a href="#identifiability">An identifiability test for self-reports</a></li>
+          <li><a href="#representation">02 &nbsp;Representation learning</a></li>
+          <li class="sub"><a href="#readout">Where instruction tuning changes a moral judgment</a></li>
+          <li><a href="#imaging">03 &nbsp;Imaging &amp; biosignals</a></li>
+          <li class="sub"><a href="#ecg">An explanation written onto the trace</a></li>
+          <li class="sub"><a href="#mammography">Detection without dense annotation</a></li>
+          <li><a href="#language">04 &nbsp;Language &amp; software</a></li>
+          <li><a href="#compute">Compute</a></li>
+        </ul></nav>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="method">
+    <div class="shell">
+      <div class="margin">
+        <b>On borrowing</b>
+        The shared method
       </div>
       <div class="column">
         <div class="prose">
-          <p>Machine learning borrows constantly: from information theory, from control engineering, from neuroscience, from statistics. Borrowing is not the problem. Borrowing loosely is. A tool imported as an analogy produces figures that look like evidence and are not.</p>
-          <p>Every project here carries three things before it produces a result. A <strong>contract</strong>, saying what in the borrowed theory corresponds to what in the system. A <strong>null model</strong>, saying what the instrument reports when there is nothing there. And a <strong>falsifier</strong>, a stated observation that would tell us the whole approach was wrong.</p>
-          <p>This is a slower way to publish. It is also the only version of the work we would be willing to hand to a company that has to answer for the system afterwards.</p>
+          <p>Machine learning borrows constantly: from information theory, from control engineering, from neuroscience, from statistics. The difficulty is that a tool imported as an analogy still produces numbers, and numbers look like evidence whether or not the analogy holds.</p>
+          <p>So a project here is expected to say three things before it reports a result. Which quantity in the borrowed theory corresponds to which quantity in the system. What the instrument reads when there is nothing to find, measured rather than assumed. And which observation, had it come out differently, would have counted against the claim.</p>
+          <p>This is slower than the alternative. It is also the version we would be willing to hand to a partner who has to answer for the system afterwards.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="band">
+  <section class="band" id="interpretability">
     <div class="shell">
       <div class="margin">
         <b>01 Interpretability</b>
-        <em>What a model is doing, and when the answer is evidence.</em>
+        <em>What a model is doing, and when the answer counts as evidence.</em>
       </div>
       <div class="column">
         <h2 class="h2">Reading a trained system</h2>
         <div class="prose">
-          <p>Most interpretability results are descriptions that nobody can check. A saliency map, a feature label, a circuit diagram: each is a hypothesis about a computation, presented in a format that resists disagreement. We work on the version of the field where the description can lose.</p>
-          <p>Concretely: counterfactual explanation, where the claim is tested by changing the input and seeing whether the model moves as predicted; mechanistic analysis of internal structure, using a graph vocabulary that network neuroscience spent two decades making honest; and identifiability, the question of whether a model's report about its own reasoning is evidence about that reasoning.</p>
-          <p>It is not, on its own. What follows from that is an evaluation recommendation rather than a warning. A self-report benchmark can be made to test the thing it claims to measure: hold the named intervention fixed, shift the environment around it, and see whether the report stays bound. Most of what we do lands in that shape, as a change to how a claim is checked rather than a reason to stop making it.</p>
+          <p>Most interpretability results are descriptions that nobody can check. A saliency map, a feature label, a circuit diagram: each proposes a computation, in a format that makes disagreement difficult. The work here belongs to the version of the field where a description can turn out to be wrong.</p>
+          <p>Three strands. Counterfactual explanation, where the claim is tested by changing the input and seeing whether the model moves as predicted. Mechanistic analysis of internal structure, using the graph vocabulary that network neuroscience spent two decades disciplining. And identifiability: whether a model&rsquo;s account of its own reasoning constrains what that reasoning could have been.</p>
+          <p>The conclusions tend to arrive as recommendations about evaluation rather than as warnings. A benchmark that asks a model to report on itself can be made to test what it claims to measure, by holding the reported intervention fixed and varying the environment around it.</p>
         </div>
+
+        <div class="study" id="identifiability">
+          <p class="study-key">Study</p>
+          <h3 class="study-title">An identifiability test for self-reports</h3>
+          <p class="study-line">Two mechanisms can produce the same self-reports and come apart only under intervention. The test that separates them turns out to be cheap.</p>
+
+          <figure class="figure">
+            <div class="plate full"><img src="/assets/img/figures/identifiability.png" alt="Four-panel schematic: the same observed report distribution is compatible with a grounded and a prompt-bound mechanism, separated only under intervention." loading="lazy"></div>
+            <figcaption class="caption">The same reports are compatible with two mechanisms, which disagree only under intervention. From the paper.</figcaption>
+          </figure>
+
+          <div class="slot">
+            <div class="slot-key">The question</div>
+            <div class="slot-body"><p>When a model explains why it answered as it did, does the explanation constrain what the underlying computation could have been? Much of the interest in chain-of-thought and self-explanation assumes that it does.</p></div>
+          </div>
+          <div class="slot">
+            <div class="slot-key">What we found</div>
+            <div class="slot-body">
+              <p>A self-report is evidence about behaviour in a prompt environment. A mechanism that never reads the intervened hidden state can reproduce exactly the reports of one that does, so the two are observationally equivalent and separate only under intervention.</p>
+              <p>The separating test is inexpensive: hold the named intervention fixed and shift the demonstration environment around it. Across three open instruction models, <strong>wrong-source demonstrations pulled the reports towards the source answer family</strong>, and binding the mechanism explicitly reduced that pull. Had the reports held still, they would already have been bound to the intervention and no such test would be needed.</p>
+            </div>
+          </div>
+          <div class="slot">
+            <div class="slot-key">The paper</div>
+            <div class="slot-body">
+              <p class="pub-title"><a href="https://openreview.net/forum?id=iBq4yYwYfd">Self-Reports Do Not Identify Self-Models: An Identifiability Test for Counterfactual Reports</a><span class="tag">oral</span></p>
+              <p class="pub-authors"><a href="/people/#konrad">Phongsakon Mark Konrad</a>, <a href="/people/#tanyel">Toygar Tanyel</a>, <a href="/people/#ayvaz">Serkan Ayvaz</a></p>
+              <p class="pub-meta"><span class="venue">Philosophy Meets Machine Learning: What Counts As Trustworthy?</span> workshop at ICML 2026</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <section class="band">
+  <section class="band" id="representation">
     <div class="shell">
       <div class="margin">
         <b>02 Representation learning</b>
@@ -86,51 +137,145 @@
       <div class="column">
         <h2 class="h2">How a network comes to encode what it encodes</h2>
         <div class="prose">
-          <p>A trained network ends up carrying structure that nobody put there by hand. Which structure appears is decided by an interaction between architecture, data, optimiser, scale, and increasingly the post-training stage. Most claims about that interaction are made by comparing two models that differ in several of those at once, which is why so few of them survive.</p>
-          <p>We work with designs that isolate one variable. A matched pretrained and instruction-tuned checkpoint sharing architecture, tokeniser and pretraining seed leaves the post-training step as the only thing free to vary, which is what makes a claim about that step testable at all.</p>
-          <p>The recurring question is the gap between presence and use: a capability can be cleanly decodable from a representation and still play no part in what the model actually outputs. Decodable is not the same as used, and the difference matters for anyone reading a probe result as evidence.</p>
+          <p>A trained network carries structure that nobody placed there. Which structure appears is settled by an interaction between architecture, data, optimiser, scale and, increasingly, the post-training stage. Most claims about that interaction compare two models differing in several of those at once, which is why so few of them survive.</p>
+          <p>We prefer designs in which one variable moves. A matched pretrained and instruction-tuned checkpoint sharing architecture, tokeniser and pretraining seed leaves post-training as the only thing free to vary, which is what makes a claim about post-training testable rather than merely plausible.</p>
+          <p>The recurring question is the distance between presence and use. A capability can be cleanly decodable from a representation and still play no part in what the model emits. Anyone reading a probe result as evidence of a capability is reading across that gap.</p>
         </div>
+
+        <div class="study" id="readout">
+          <p class="study-key">Study</p>
+          <h3 class="study-title">Where instruction tuning changes a moral judgment</h3>
+          <p class="study-line">The direction was already in the pretrained network. Tuning connected it to the part that answers.</p>
+
+          <figure class="figure">
+            <div class="plate full"><img src="/assets/img/figures/attribution.png" alt="A grid of attention heads by layer, with a few heads marked as writers and antagonists to the judgment direction." loading="lazy"></div>
+            <figcaption class="caption">Per-head attribution into the judgment direction; the selected heads are then mean-ablated. From the paper.</figcaption>
+          </figure>
+
+          <div class="slot">
+            <div class="slot-key">The question</div>
+            <div class="slot-body"><p>When an instruction-tuned model treats a moral question differently from its base model, has post-training built a new representation, or connected one that was already present?</p></div>
+          </div>
+          <div class="slot">
+            <div class="slot-key">What we found</div>
+            <div class="slot-body">
+              <p>The comparison uses a matched pretrained and instruction-tuned checkpoint sharing architecture, tokeniser and pretraining seed, so post-training is the only free variable. Without that control, any difference between two models can be laid at the door of pretraining instead.</p>
+              <p>Moral framing is already linearly decodable in the pretrained network, and it has no causal effect on that network&rsquo;s judgment. In the instruction-tuned checkpoint the same representation becomes aligned with, and causally usable by, the evaluative readout: within-model alignment between framing and judgment is <strong>8.4 times larger</strong> than in the matched pretrained checkpoint at the same layer. Probes, the logit lens, residual activation patching and per-head attribution followed by mean ablation all point the same way.</p>
+              <p>The account is answerable in three places. The framing has to be decodable before tuning; tuning has to align it with the readout; and intervening on the aligned direction has to move the judgment. Each of the three is separately testable.</p>
+            </div>
+          </div>
+          <div class="slot">
+            <div class="slot-key">The paper</div>
+            <div class="slot-body">
+              <p class="pub-title"><a href="https://openreview.net/forum?id=da9ylT2doy">Decoded but Unused: Instruction Tuning Routes Moral Framing into the Judgment Readout</a></p>
+              <p class="pub-authors"><a href="/people/#konrad">Phongsakon Mark Konrad</a>, <a href="/people/#tanyel">Toygar Tanyel</a>, <a href="/people/#ayvaz">Serkan Ayvaz</a></p>
+              <p class="pub-meta"><span class="venue">Mechanistic Interpretability</span> workshop at ICML 2026</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <section class="band">
+  <section class="band" id="imaging">
     <div class="shell">
       <div class="margin">
         <b>03 Imaging &amp; biosignals</b>
-        <em>Where an unexplained model is not an option.</em>
+        <em>Where an unexplained model cannot be used.</em>
       </div>
       <div class="column">
         <h2 class="h2">Medical images and physiological signals</h2>
         <div class="prose">
-          <p>Clinical machine learning is where interpretability stops being an academic preference. A radiologist or a cardiologist is accountable for the decision, so a model that cannot be interrogated is a model that cannot be used, whatever its numbers say.</p>
-          <p>Our work covers counterfactual analysis of ECG for infarction detection, evaluation of saliency-based explanation in mammography, and segmentation, including a benchmarking study of how badly the field's standard practices handle small organs. Across all of it the same question: does the explanation change when the underlying decision changes, or is it decoration?</p>
+          <p>A radiologist or a cardiologist is accountable for the decision, so a model that cannot be interrogated is a model that cannot be used, whatever its numbers say. One question runs through this line: does the explanation change when the decision changes?</p>
+          <p>At SDU the line&rsquo;s work so far is on segmentation and on benchmarking practice, including how the field&rsquo;s standard protocols behave on small organs and small datasets.</p>
+          <p>The two studies below were not done here. They are earlier work by <a href="/people/#tanyel">Toygar Tanyel</a> with clinical teams in Istanbul, and they are on this page because they state most clearly what this line asks of an explanation.</p>
         </div>
-        <figure class="figure more">
-          <div class="frame slot"><span>figure &middot; to be added</span></div>
-          <figcaption class="caption">A representative result figure will go here.</figcaption>
-        </figure>
+
+        <div class="study" id="ecg">
+          <p class="study-key">Earlier study &middot; not SDU work</p>
+          <h3 class="study-title">An explanation written onto the trace</h3>
+          <p class="study-line">A cardiologist can check a claim about what would have had to be different. That is the form the explanation takes here.</p>
+
+          <figure class="figure">
+            <div class="plate full"><img src="/assets/img/figures/ecg-counterfactual.png" alt="A three-stage pipeline: ECG preprocessing and feature extraction, tree-ensemble classification, then counterfactual generation visualised back on the trace." loading="lazy"></div>
+            <figcaption class="caption">Features are extracted from the identified beats, classified, and counterfactuals decompressed back onto the trace. From the paper.</figcaption>
+          </figure>
+
+          <div class="slot">
+            <div class="slot-key">The question</div>
+            <div class="slot-body"><p>A saliency map over an ECG reports where a model attended. To act on it, a cardiologist needs something else: which features, changed by how much, would have reversed the decision.</p></div>
+          </div>
+          <div class="slot">
+            <div class="slot-key">What the study found</div>
+            <div class="slot-body">
+              <p>Beats are identified in the cleaned signal, features are extracted across leads, and myocardial infarction is classified against normal. Counterfactuals are then generated over those features and decompressed back onto the original trace, so the explanation appears on the ECG itself rather than beside it: these intervals, moved this far, reverse the decision.</p>
+              <p>The generation step verifies that the classifier changes its decision when the named features change. Without that check, the counterfactuals would be claims about the feature space and not about the ECG.</p>
+            </div>
+          </div>
+          <div class="slot">
+            <div class="slot-key">The paper</div>
+            <div class="slot-body">
+              <p class="pub-title"><a href="https://doi.org/10.1016/j.bspc.2024.107227">Interpretable ECG analysis for myocardial infarction detection through counterfactuals</a></p>
+              <p class="pub-authors"><a href="/people/#tanyel">Toygar Tanyel</a>, Sezgin Atmaca, Kaan G&ouml;k&ccedil;e, M. Yi&#287;it Bal&#305;k, Arda G&uuml;ler, Emre Aslanger, &#304;lkay &Ouml;ks&uuml;z</p>
+              <p class="pub-meta"><span class="venue">Biomedical Signal Processing and Control</span> 102, 107227 &middot; 2025</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="study" id="mammography">
+          <p class="study-key">Earlier study &middot; not SDU work</p>
+          <h3 class="study-title">Detection without dense annotation</h3>
+          <p class="study-line">Make the patch the unit of evidence, and the output points at the image by construction.</p>
+
+          <figure class="figure">
+            <div class="plate full"><img src="/assets/img/figures/mammography.png" alt="A curriculum from 128-pixel patches through 256 and 512 to the full 1024-pixel mammogram, feeding one network across stages." loading="lazy"></div>
+            <figcaption class="caption">A curriculum over patch scales, carried through one network. From the paper.</figcaption>
+          </figure>
+
+          <div class="slot">
+            <div class="slot-key">The question</div>
+            <div class="slot-body"><p>Screening mammography models are usually trained on exhaustively annotated data, which is expensive and scarce, and they account for themselves afterwards with a heatmap laid over the result. Neither is necessary.</p></div>
+          </div>
+          <div class="slot">
+            <div class="slot-key">What the study found</div>
+            <div class="slot-body">
+              <p>Training runs as a curriculum over patch scales, from 128 pixels through 256 and 512 to the full 1024-pixel image, with one network carried through every stage.</p>
+              <p>Because the unit of evidence is a patch, the output localises to a region of the mammogram by construction, with no attribution step afterwards, and the supervision can stay sparse. Had the accuracy come from the full-image stage alone, the curriculum would be doing no work and a patch would be no kind of evidence.</p>
+            </div>
+          </div>
+          <div class="slot">
+            <div class="slot-key">The paper</div>
+            <div class="slot-body">
+              <p class="pub-title"><a href="https://doi.org/10.1186/s13244-025-01922-w">Annotation-efficient, patch-based, explainable deep learning using curriculum method for breast cancer detection in screening mammography</a></p>
+              <p class="pub-authors">&Ouml;zden &Ccedil;amurdan, <a href="/people/#tanyel">Toygar Tanyel</a>, Esma Aktufan &Ccedil;erek&ccedil;i, Deniz Al&#305;&#351;, Emine Meltem, Nurper Denizo&#287;lu, Mustafa Ege &#350;eker, &#304;lkay &Ouml;ks&uuml;z, Ercan Karaarslan</p>
+              <p class="pub-meta"><span class="venue">Insights into Imaging</span> 16, 60 &middot; 2025</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <section class="band">
+  <section class="band" id="language">
     <div class="shell">
       <div class="margin">
         <b>04 Language &amp; software</b>
-        <em>The applied half, and the one with the nearest industrial partners.</em>
+        <em>Retrieval, evaluation, and the software around a model.</em>
       </div>
       <div class="column">
         <h2 class="h2">Language models, and the software they reshape</h2>
         <div class="prose">
-          <p>A language model in a company is never just a model. It is a retrieval layer, a document base that was never written to be queried this way, an evaluation story, and a set of architectural commitments that nobody consciously made.</p>
-          <p>We work on both ends. On the retrieval side: chunking, vector search and evaluation for systems that must answer from a real corpus. On the software side: how these systems change the architecture around them, including the design decisions that coding assistants and multi-step agent systems make on a team's behalf without anyone reviewing them.</p>
+          <p>A language model inside a company is never only a model. It is a retrieval layer, a document base that was never written to be queried this way, an evaluation story, and a set of architectural commitments that nobody consciously made.</p>
+          <p>We work at both ends. On the retrieval side: dataset search, content-based table search, and evaluation for systems that have to answer from a real corpus, including the question of whether generated metadata makes a dataset findable without also making it misdescribed. On the software side: what these systems do to the architecture around them, and which design decisions coding assistants and multi-step agent systems settle on a team&rsquo;s behalf before anyone reviews them.</p>
+          <p>It is the line whose results are closest to something a team could pick up and use directly.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="band">
+  <section class="band" id="compute">
     <div class="shell">
       <div class="margin">
         <b>Resources</b>
@@ -138,7 +283,7 @@
       </div>
       <div class="column">
         <div class="prose">
-          <p>The work is deliberately compute-light. Small open models, national HPC allocation, and methods that a hospital or a mid-sized manufacturer could run themselves. A result that only reproduces on a frontier cluster is a result our partners cannot use.</p>
+          <p>The work is deliberately compute-light: small open models, national HPC allocation, and methods a hospital or a mid-sized manufacturer could run on its own hardware. A result that only reproduces on a frontier cluster is a result a partner could not check.</p>
         </div>
       </div>
     </div>
@@ -146,8 +291,8 @@
 
   <section class="strip">
     <div class="shell">
-      <p class="line">Each line is easier to judge from what it produced than from what it claims.</p>
-      <span class="to"><a class="arrow" href="/work/">See selected work &rarr;</a></span>
+      <p class="line">Papers from the group, and earlier work its members brought with them.</p>
+      <span class="to"><a class="arrow" href="/publications/">All publications &rarr;</a></span>
     </div>
   </section>
 
@@ -158,17 +303,15 @@
     <div>
       <b>Applied and Interpretable Machine Learning Research Group</b>
       Centre for Industrial Software<br>
-      Mærsk Mc-Kinney Møller Institute<br>
+      M&aelig;rsk Mc-Kinney M&oslash;ller Institute<br>
       University of Southern Denmark<br>
-      Sønderborg, Denmark
+      S&oslash;nderborg, Denmark
     </div>
     <div>
       <b>Pages</b>
       <a href="/research/">Research</a><br>
-      <a href="/work/">Selected work</a><br>
       <a href="/publications/">Publications</a><br>
       <a href="/people/">People</a><br>
-      <a href="/news/">News</a><br>
       <a href="/join/">Join</a>
     </div>
     <div>

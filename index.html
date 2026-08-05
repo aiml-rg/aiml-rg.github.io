@@ -23,10 +23,8 @@
     <a class="mark" href="/"><span class="mark-glyph" aria-hidden="true"></span><span class="mark-text">Applied and Interpretable<small>Machine Learning Research Group</small></span></a>
     <nav class="nav" aria-label="Primary">
       <a href="/research/">research</a>
-      <a href="/work/">work</a>
       <a href="/publications/">publications</a>
       <a href="/people/">people</a>
-      <a href="/news/">news</a>
       <a href="/join/">join</a>
     </nav>
     <button class="theme" type="button" data-theme-toggle aria-label="Switch theme"></button>
@@ -38,7 +36,7 @@
   <section class="hero">
     <div class="shell">
       <h1 class="hero-name">Applied and Interpretable Machine Learning <span class="q">Research Group</span></h1>
-      <p class="hero-lead">We build machine learning systems with industry, and we study what is actually happening inside them.</p>
+      <p class="hero-lead">We build machine learning systems with industry, and we study what is happening inside them.</p>
     </div>
 
     <div class="shell hero-figure">
@@ -56,15 +54,16 @@
       <div class="margin">
         <b>The group</b>
         Centre for Industrial Software<br>
-        SDU &middot; Sønderborg
-        <em>Two commitments that pull in opposite directions, which is the point.</em>
+        M&aelig;rsk Mc-Kinney M&oslash;ller Institute<br>
+        SDU &middot; S&oslash;nderborg
+        <em>Formed in 2026 and currently recruiting.</em>
       </div>
       <div class="column">
-        <h2 class="h2">Machine learning learned to work long before it learned to answer for itself.</h2>
+        <h2 class="h2">Someone is accountable for every deployed model, whether or not anyone can explain it.</h2>
         <div class="prose">
-          <p>Machine learning has become ordinary infrastructure. It reads scans, drafts documents, routes decisions and sits inside products that people depend on. What has not become ordinary is the ability to say, afterwards, what the system actually did and why anyone should have believed it.</p>
-          <p>We work on both halves of that problem at once. <strong>Applied</strong> means the systems are real: built with companies and clinics, deployed, measured, and maintained after the paper is written. <strong>Interpretable</strong> means we hold ourselves to explaining them, and to testing whether our explanations are worth anything.</p>
-          <p>The second half is the harder one. Most explanations of a model are stated in a form that cannot lose: a highlighted region, a labelled feature, a plausible story about a circuit. Most of our methodological work is about restating them in a form that can.</p>
+          <p>Machine learning has become ordinary infrastructure. It reads scans, drafts documents, routes applications, and sits inside products that people depend on without having chosen to. What has not become ordinary is the ability to say afterwards what a system did, and why anyone should have believed it.</p>
+          <p>The group works on both halves of that. <strong>Applied</strong> means the questions come from systems that are already in use, and that the group sits in a centre whose remit is research with industry. <strong>Interpretable</strong> means we hold ourselves to explaining the resulting systems, and to testing whether the explanation survives contact with the model.</p>
+          <p>The second half is the harder one, because most explanations of a model are stated in a form that cannot fail. A highlighted region, a labelled feature, a plausible story about a circuit: each is a claim about a computation, put in a shape that no observation could contradict. Much of our methodological work is about restating such claims so that an observation could.</p>
         </div>
       </div>
     </div>
@@ -75,7 +74,7 @@
       <div class="margin">
         <b>Research</b>
         Four lines
-        <em>They share one method: borrow a mature tool from another field, state the mapping, and name what would falsify it.</em>
+        <em>Each line is described in full, with the study it has produced, on the research page.</em>
       </div>
       <div class="column">
         <div class="entries">
@@ -83,91 +82,45 @@
           <div class="entry">
             <div class="entry-key">Interpretability</div>
             <div class="entry-body">
-              <h3 class="h3">A description of a model is not yet evidence about it</h3>
-              <p>Counterfactual explanation, mechanistic analysis, and identifiability. We are as interested in the evaluation that decides when a description of a model counts as evidence as in the descriptions themselves.</p>
+              <h3 class="h3">Reading a trained model, and checking the reading</h3>
+              <p>Counterfactual explanation, mechanistic analysis, and identifiability: when a description of a model is evidence about it, and when it is only a description. <a href="/research/#identifiability">A model&rsquo;s report on its own reasoning &rarr;</a></p>
             </div>
           </div>
 
           <div class="entry">
             <div class="entry-key">Representation learning</div>
             <div class="entry-body">
-              <h3 class="h3">Decodable is not the same as used</h3>
-              <p>What architecture, optimisation, data and scale do to the structure a model ends up with, and whether a capability that can be decoded from a representation is actually used by the output or merely sitting there unused.</p>
+              <h3 class="h3">What training decides, and what the output uses</h3>
+              <p>How architecture, data, optimisation and post-training shape the structure a model ends up with, and whether a capability that can be decoded from a representation is one the model draws on. <a href="/research/#readout">Instruction tuning and moral framing &rarr;</a></p>
             </div>
           </div>
 
           <div class="entry">
             <div class="entry-key">Imaging &amp; biosignals</div>
             <div class="entry-body">
-              <h3 class="h3">The explanation is part of the result, not a figure after it</h3>
-              <p>Segmentation, detection and clinical evaluation, with the explanation treated as part of the result rather than a figure added at the end. Work on ECG, MRI and mammography, and on the benchmarking practices the field uses to judge itself.</p>
+              <h3 class="h3">Clinical imaging and physiological signals</h3>
+              <p>Segmentation, and the benchmarking practices the field uses to judge itself, including how standard protocols behave on small organs and small datasets. <a href="/research/#imaging">Read the line &rarr;</a></p>
             </div>
           </div>
 
           <div class="entry">
             <div class="entry-key">Language &amp; software</div>
             <div class="entry-body">
-              <h3 class="h3">The architecture nobody chose</h3>
-              <p>Retrieval and evaluation for models answering from a real corpus, and the design decisions that coding assistants and agent systems make on a team's behalf without anyone reviewing them.</p>
+              <h3 class="h3">Retrieval, evaluation, and the architecture around a model</h3>
+              <p>Dataset search and retrieval for models that must answer from a real corpus, and the design decisions that coding assistants make on a team&rsquo;s behalf without being asked. <a href="/research/#language">Read the line &rarr;</a></p>
             </div>
           </div>
 
         </div>
-        <p class="more"><a class="arrow" href="/research/">Read the full research statement &rarr;</a>
-          <a class="arrow gap" href="/work/">See selected work &rarr;</a></p>
-      </div>
-    </div>
-  </section>
-
-  <section class="band">
-    <div class="shell">
-      <div class="margin">
-        <b>Selected work</b>
-        <em>A fuller list, including the group's earlier work on industrial machine learning, is on the publications page.</em>
-      </div>
-      <div class="column">
-
-        <div class="pub">
-          <div class="pub-year">2026</div>
-          <div>
-            <p class="pub-title">Self-Reports Do Not Identify Self-Models: An Identifiability Test for Counterfactual Reports<span class="tag">oral</span></p>
-            <p class="pub-meta">P. M. Konrad, T. Tanyel, S. Ayvaz &middot; <span class="venue">ICML 2026 Workshop on Philosophy of Machine Learning</span></p>
-          </div>
-        </div>
-
-        <div class="pub">
-          <div class="pub-year">2026</div>
-          <div>
-            <p class="pub-title">A Path Already Walked: On Inheriting Network-Neuroscience Tools for Mechanistic Interpretability</p>
-            <p class="pub-meta">P. M. Konrad, T. Tanyel, S. Ayvaz &middot; <span class="venue">ICML 2026 Workshop on Mechanistic Interpretability</span></p>
-          </div>
-        </div>
-
-        <div class="pub">
-          <div class="pub-year">2026</div>
-          <div>
-            <p class="pub-title">The Open-Box Fallacy: Why AI Deployment Needs a Calibrated Verification Regime</p>
-            <p class="pub-meta">P. M. Konrad, T. L. Adam, A. C. H. Merrild, R. Terrenzi, R. De Rosa, T. Tanyel, et al. &middot; <span class="venue">Preprint</span></p>
-          </div>
-        </div>
-
-        <div class="pub">
-          <div class="pub-year">2025</div>
-          <div>
-            <p class="pub-title">Interpretable ECG Analysis for Myocardial Infarction Detection through Counterfactuals</p>
-            <p class="pub-meta">T. Tanyel et al. &middot; <span class="venue">Biomedical Signal Processing and Control</span></p>
-          </div>
-        </div>
-
-        <p class="more"><a class="arrow" href="/publications/">All publications &rarr;</a></p>
+        <p class="more"><a class="arrow" href="/research/">The four lines in full &rarr;</a></p>
       </div>
     </div>
   </section>
 
   <section class="strip">
     <div class="shell">
-      <p class="line">We take on students who want to know why something worked, not only that it did.</p>
-      <span class="to"><a class="arrow" href="/join/">Open positions and supervision &rarr;</a></span>
+      <p class="line">We take on students who want to know why something worked, and not only that it did.</p>
+      <span class="to"><a class="arrow" href="/join/">Positions and supervision &rarr;</a></span>
     </div>
   </section>
 
@@ -178,17 +131,15 @@
     <div>
       <b>Applied and Interpretable Machine Learning Research Group</b>
       Centre for Industrial Software<br>
-      Mærsk Mc-Kinney Møller Institute<br>
+      M&aelig;rsk Mc-Kinney M&oslash;ller Institute<br>
       University of Southern Denmark<br>
-      Sønderborg, Denmark
+      S&oslash;nderborg, Denmark
     </div>
     <div>
       <b>Pages</b>
       <a href="/research/">Research</a><br>
-      <a href="/work/">Selected work</a><br>
       <a href="/publications/">Publications</a><br>
       <a href="/people/">People</a><br>
-      <a href="/news/">News</a><br>
       <a href="/join/">Join</a>
     </div>
     <div>

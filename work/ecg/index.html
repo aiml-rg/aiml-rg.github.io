@@ -2,119 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script>(function(){try{var t=localStorage.getItem("aiml-theme");if(t!=="light"&&t!=="dark"){t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
-<title>An explanation a cardiologist can test &middot; Applied and Interpretable Machine Learning Research Group</title>
-<meta name="description" content="Not where the model looked, but what would have had to be different for it to change its mind.">
-<link rel="icon" href="/assets/img/favicon-v2.svg" type="image/svg+xml">
-<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
-<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css">
+<title>Moved</title>
+<link rel="canonical" href="https://aiml-sdu.github.io/research/">
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url=/research/#ecg">
 </head>
 <body>
-
-<a class="skip" href="#main">Skip to content</a>
-
-<header class="masthead">
-  <div class="shell">
-    <a class="mark" href="/"><span class="mark-glyph" aria-hidden="true"></span><span class="mark-text">Applied and Interpretable<small>Machine Learning Research Group</small></span></a>
-    <nav class="nav" aria-label="Primary">
-      <a href="/research/">research</a>
-      <a class="on" href="/work/">work</a>
-      <a href="/publications/">publications</a>
-      <a href="/people/">people</a>
-      <a href="/news/">news</a>
-      <a href="/join/">join</a>
-    </nav>
-    <button class="theme" type="button" data-theme-toggle aria-label="Switch theme"></button>
-  </div>
-</header>
-
-<main id="main">
-
-  <section class="pagehead">
-    <div class="shell">
-      <p class="kicker"><a href="/work/">Selected work</a> &middot; Imaging &amp; biosignals</p>
-      <h1>An explanation a cardiologist can test</h1>
-      <p class="standfirst">Not where the model looked, but what would have had to be different for it to change its mind.</p>
-    </div>
-  </section>
-
-  <section class="band">
-    <div class="shell">
-      <div class="margin"><b>Figure</b></div>
-      <div class="column">
-        <figure class="figure">
-          <div class="plate full"><img src="/assets/img/figures/ecg-counterfactual.png" alt="A three-stage pipeline: ECG preprocessing and feature extraction, tree-ensemble classification, then counterfactual generation visualised back on the trace." loading="lazy"></div>
-          <figcaption class="caption">Features are extracted from the identified beats, classified, and counterfactuals are decompressed back onto the trace. Figure from the paper.</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="band">
-    <div class="shell">
-      <div class="margin"><b>The work</b><em>Every entry here carries the same four slots.</em></div>
-      <div class="column">
-        <div class="slot">
-          <div class="slot-key">The question</div>
-          <div class="slot-body"><p>A saliency map over an ECG says where a model attended. It does not say what would have had to change for the decision to flip, which is the only form an explanation can take that a clinician is able to check against a patient.</p></div>
-        </div>
-        <div class="slot">
-          <div class="slot-key">What we found</div>
-          <div class="slot-body"><p>The pipeline identifies beats in the cleaned signal, extracts features across leads, and classifies myocardial infarction against normal. Counterfactuals are then generated over those features and decompressed back onto the original trace, so the explanation arrives as a marked region of the ECG rather than as a separate figure.</p>
-          <p>The explanation is therefore stated as a change: these intervals, moved this far, reverse the decision.</p></div>
-        </div>
-        <div class="slot">
-          <div class="slot-key">What would sink it</div>
-          <div class="slot-body"><p>If the model had not actually moved when the named features were changed, the counterfactuals would be describing the feature space rather than the ECG.</p></div>
-        </div>
-        <div class="slot">
-          <div class="slot-key">Paper</div>
-          <div class="slot-body"><p>T. Tanyel, S. Atmaca, K. G&ouml;k&ccedil;e, M. Y. Bal&#305;k, A. G&uuml;ler, E. Aslanger, &#304;. &Ouml;ks&uuml;z &middot; <span class="venue">Biomedical Signal Processing and Control</span>, 2025</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="strip">
-    <div class="shell">
-      <p class="line">All four are written to the same four slots, which makes them quick to compare.</p>
-      <span class="to"><a class="arrow" href="/work/">All selected work &rarr;</a></span>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="shell">
-    <div>
-      <b>Applied and Interpretable Machine Learning Research Group</b>
-      Centre for Industrial Software<br>
-      M&aelig;rsk Mc-Kinney M&oslash;ller Institute<br>
-      University of Southern Denmark<br>
-      S&oslash;nderborg, Denmark
-    </div>
-    <div>
-      <b>Pages</b>
-      <a href="/research/">Research</a><br>
-      <a href="/work/">Selected work</a><br>
-      <a href="/publications/">Publications</a><br>
-      <a href="/people/">People</a><br>
-      <a href="/news/">News</a><br>
-      <a href="/join/">Join</a>
-    </div>
-    <div>
-      <b>Elsewhere</b>
-      <a href="https://www.sdu.dk/en/forskning/cis">SDU CIS</a><br>
-      <a href="https://github.com/aiml-sdu">GitHub</a>
-    </div>
-  </div>
-</footer>
-
-<script src="/assets/js/theme.js"></script>
+<p>This page has moved to <a href="/research/#ecg">/research/#ecg</a>.</p>
 </body>
 </html>
